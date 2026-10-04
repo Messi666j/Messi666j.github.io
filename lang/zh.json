@@ -10,8 +10,8 @@
   "intro": {
     "avatarAlt": "王浩宇的头像",
     "title": "你好，我是 王浩宇 (Haoyu Wang)",
-    "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦多智能体运动规划、凸安全走廊 (Convex Safe Corridor)、模型预测控制 (LO-MPC)、机械臂控制与嵌入式系统研发",
-    "status": "2026届求职中 · 意向: 机器人规划控制 / 嵌入式软件 · 期望: 12-15K"
+    "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦机械臂运动学控制、具身智能 (LeRobot / ACT / VLA 模仿学习)、多智能体凸安全走廊规划与嵌入式软硬件研发",
+    "status": "2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K"
   },
   "projects": {
     "title": "核心研发与工程项目",
@@ -29,46 +29,46 @@
     "item0": {
       "title": "基于凸安全走廊与 LO-MPC 的多移动机器人协同运动规划",
       "role": "毕业设计 · 独立研发 (2025.12 - 2026.06)",
-      "desc": "面向密集障碍物环境下多智能体协同通行与动态避障难题，从零设计并实现了从栅格安全膨胀、A*路径拓扑剪枝、凸安全走廊生成、Minimum Snap连续轨迹优化，到 CasADi 词典序模型预测控制 (LO-MPC) 的全套运动规划流水线。在密集狭窄走廊中实现编队跟踪误差 < 0.05m，控制周期 50ms。",
+      "desc": "面向密集障碍物环境下多智能体协同通行与避障难题，从零设计并实现了从栅格安全膨胀、A*路径拓扑剪枝、凸安全走廊生成、Minimum Snap连续轨迹优化，到 CasADi 词典序模型预测控制 (LO-MPC) 的全套运动规划流水线。在密集狭窄走廊中实现编队跟踪误差 < 0.05m，控制周期 50ms。",
       "tags": ["Convex Safe Corridor", "Minimum Snap", "LO-MPC", "CasADi", "Multi-Robot", "Python", "Trajectory Optimization"]
     },
     "item1": {
+      "title": "基于 SO-ARM 与 LeRobot 的机械臂遥操作与具身模仿学习",
+      "role": "硬件研发 / 仿真探索 (2025.08 - 2026.01)",
+      "desc": "结合 3D 打印与开源 SO-ARM 机械臂架构，底层选用 STS3215 串行总线舵机搭建机械臂本体与主从遥操作 (Teleoperation) 控制端；在 MuJoCo 中构建高保真 URDF 动力学仿真场景，8月完成刚体动力学验证与抓取碰撞仿真；基于 Hugging Face LeRobot 部署主从轨迹录制链路，以 50Hz 采样率构建标准化多视角数据集；部署 ACT 与 Diffusion Policy 策略模型，打通从仿真策略训练到物理舵机总线通信的端到端闭环。",
+      "tags": ["SO-ARM", "Hugging Face LeRobot", "ACT Policy", "Diffusion Policy", "MuJoCo", "STS3215", "Teleoperation", "Embodied AI"]
+    },
+    "item2": {
       "title": "2025 RoboCup 救援机器人电控系统与机械臂协同控制",
       "role": "主力电控 · 核心研发 (2024.12 - 2025.05)",
       "desc": "面向复杂废墟搜救场景，负责研发移动底盘与机械臂协同作业的核心电控系统。打通上位机 Linux/ROS 与 STM32 下位机高可靠 CAN 总线双向链路；主导多自由度串联机械臂几何/解析正逆运动学解算与五次多项式平滑插补；完成大疆 M2006 无刷电机位置-速度双闭环 PID 调优与里程计协同。助力团队斩获 2025 RoboCup 机器人中国赛全国三等奖。",
       "tags": ["RoboCup国家三等奖", "STM32", "CAN Bus", "Kinematics", "Quintic Spline", "M2006 PID", "FreeRTOS"]
     },
-    "item2": {
+    "item3": {
       "title": "基于 ROS 2 的移动机器人激光SLAM与自主导航系统",
       "role": "自主导航研发 · 开源复现 (2025.06 - 2025.11)",
-      "desc": "参考 Nav2 规范与 TrailBlazer 分层思想，基于 ROS 2 (Humble) 与 Gazebo 搭建自主移动机器人仿真平台。采用 Server-Plugin-Lifecycle 架构解耦通信与算法，基于 Pluginlib 达成规划/控制插件动态加载；集成 FAST-LIO2 紧耦合激光雷达-IMU 6-DOF 里程计；部署局部点云 PCA 地面分割与三维 ESDF 实时增量场；全局层采用 B-spline 轨迹平滑，局部控制层接入 MPPI 随机采样控制算法实现高动态避障。",
+      "desc": "参考 Nav2 规范与 TrailBlazer 分层思想，基于 ROS 2 (Humble) 与 Gazebo 搭建自主移动机器人仿真平台。采用 Server-Plugin-Lifecycle 架构解耦通信与算法；集成 FAST-LIO2 紧耦合激光雷达-IMU 6-DOF 里程计；部署局部点云 PCA 地面分割与三维 ESDF 实时增量场；全局层采用 B-spline 轨迹平滑，局部控制层接入 MPPI 随机采样控制算法实现高动态避障。",
       "tags": ["ROS 2 Humble", "FAST-LIO2", "ESDF Mapping", "B-spline", "MPPI Control", "Lifecycle Node", "Gazebo"]
-    },
-    "item3": {
-      "title": "六自由度机械臂动力学建模与柔顺阻抗控制 (进阶研发)",
-      "role": "机械臂专项 · 进阶研发 (Active Exploration)",
-      "desc": "立足于机械臂控制岗位核心技术要求，利用 Pinocchio 刚体动力学库建立机械臂质量矩阵、科里奥利力与重力项，实现计算力矩 (Computed Torque) 动力学前馈；结合末端六维力传感器模型，设计导纳/阻抗控制环，赋予机械臂接触装配柔顺自适应能力；打通 ROS 2 MoveIt 2 笛卡尔空间运动规划管线。",
-      "tags": ["MoveIt 2", "Pinocchio", "Lagrangian Dynamics", "Computed Torque", "Impedance Control", "Cartesian Trajectory"]
     }
   },
   "documents": {
     "title": "技术文档与知识沉淀",
-    "desc": "运动规划算法推导、嵌入式控制架构与工程实战总结",
+    "desc": "机械臂具身操作、运动规划算法推导与工程实战总结",
     "item0": {
       "title": "凸安全走廊 (Convex Safe Corridor) 凸多面体生成算法与拓扑路径剪枝解析",
       "desc": "详解如何从二维/三维栅格障碍环境中利用射线膨胀与半平面交构建连续凸多边形/多面体硬约束集，供下层 QP 优化器毫秒级求解。"
     },
     "item1": {
-      "title": "词典序优化模型预测控制 (LO-MPC) 在多智能体编队中的建模与 CasADi 求解",
-      "desc": "推导队形保持刚度、动态避障硬约束与输入平滑的多目标分层优先级模型，分析基于内点法与 QP 求解器在 50ms 周期内的实时鲁棒性。"
+      "title": "SO-ARM 机械臂主从遥操作搭建与 Hugging Face LeRobot ACT 模仿学习实战",
+      "desc": "详解从 STS3215 总线舵机零位标定、主从角度镜像同步、多视角 RGB-D 数据集录制，到 ACT Transformer 模型训练与推理部署的全流程踩坑经验。"
     },
     "item2": {
       "title": "多自由度串联机械臂解析正逆运动学求解与五次多项式平滑插补推导",
       "desc": "推导标准 DH 建模、末端位姿解算、关节角奇异性规避以及五次样条多项式在消除机械臂启停加速度突变中的工程落地经验。"
     },
     "item3": {
-      "title": "ROS 2 生命周期节点 (Lifecycle Node) 与 Pluginlib 模块化自主导航实战",
-      "desc": "以 TrailBlazer 自主导航框架为例，解析如何实现 Server 与算法插件解耦、运行时状态机生命周期管理与动态热插拔。"
+      "title": "词典序优化模型预测控制 (LO-MPC) 在多智能体编队中的建模与 CasADi 求解",
+      "desc": "推导队形保持刚度、动态避障硬约束与输入平滑的多目标分层优先级模型，分析基于内点法与 QP 求解器在 50ms 周期内的实时鲁棒性。"
     }
   },
   "timeline": {
@@ -85,24 +85,24 @@
       "desc": "独立搭建基于 Python 与 CasADi 的运动规划仿真系统，完成 A* 剪枝、走廊生成、Minimum Snap 与词典序 MPC 编队控制。"
     },
     "event2": {
+      "date": "2025.08 - 2026.01",
+      "title": "SO-ARM 机械臂硬件与 LeRobot 具身模仿学习研发",
+      "desc": "完成 SO-ARM 总线舵机硬件搭建、MuJoCo 仿真建模、主从遥操作数据流打通与 ACT/Diffusion 抓取策略部署。"
+    },
+    "event3": {
       "date": "2025.05",
       "title": "2025 RoboCup 机器人中国赛 · 全国三等奖 (主力电控)",
       "desc": "负责救援机器人全机 CAN 总线拓扑、底盘 M2006 无刷电机双闭环 PID 与多自由度机械臂正逆运动学及平滑抓取控制。"
     },
-    "event3": {
+    "event4": {
       "date": "2025.04",
       "title": "工程实践与创新能力大赛（工创赛）· 西安交通大学校赛银牌",
       "desc": "主导自主巡航小车电控与底盘运动控制算法编写。"
     },
-    "event4": {
+    "event5": {
       "date": "2024.04",
       "title": "美国大学生数学建模竞赛 (MCM) · Honorable Mention (H奖)",
       "desc": "负责数学模型建立与数值优化推导，全英文撰写学术竞赛报告。"
-    },
-    "event5": {
-      "date": "2024.10",
-      "title": "西安交通大学校级优秀奖学金",
-      "desc": "学业综合排名前列，自动化专业综合考评优良。"
     },
     "event6": {
       "date": "2023.11",
@@ -117,15 +117,15 @@
   },
   "skills": {
     "title": "专业技能矩阵",
-    "desc": "系统化的机器人规划控制、嵌入式软硬件底层与开发工具链",
+    "desc": "系统化的机器人规划控制、机械臂具身操作与嵌入式底层开发栈",
     "planning": "路径规划与轨迹优化",
     "control": "运动控制与运筹优化",
-    "middleware": "机器人中间件与仿真",
+    "manipulator": "机械臂与具身智能",
     "embedded": "嵌入式软硬件底层",
     "languages": "编程语言与工具链"
   },
   "footer": {
-    "copy": "王浩宇 (Haoyu Wang) · 机器人规划控制 / 嵌入式软件开发工程师",
+    "copy": "王浩宇 (Haoyu Wang) · 机器人规划控制 / 机械臂算法工程师 (具身智能)",
     "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
   }
 }

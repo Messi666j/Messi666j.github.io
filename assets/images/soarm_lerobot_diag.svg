@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#141c2e"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="480" rx="12" fill="url(#bgDarkGrad)" stroke="#1e293b" stroke-width="1.5"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="760" height="42" rx="12" fill="#1e293b"/>
+  <circle cx="24" cy="21" r="5.5" fill="#ef4444"/>
+  <circle cx="42" cy="21" r="5.5" fill="#f59e0b"/>
+  <circle cx="60" cy="21" r="5.5" fill="#10b981"/>
+  <text x="380" y="26" fill="#94a3b8" font-family="monospace" font-size="13" font-weight="600" text-anchor="middle">SO-ARM &amp; LeRobot: Embodied AI Teleoperation &amp; Imitation Learning Pipeline</text>
+
+  <!-- 1. Teleop & Perception Section -->
+  <rect x="40" y="65" width="680" height="110" rx="8" fill="url(#purpleGrad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="60" y="90" fill="#c084fc" font-family="monospace" font-size="12.5" font-weight="bold">1. TELEOPERATION &amp; MULTI-VIEW PERCEPTION (DATA COLLECTION)</text>
+
+  <!-- Leader Arm Box -->
+  <rect x="65" y="105" width="200" height="55" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1"/>
+  <text x="165" y="128" fill="#e2e8f0" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Leader (Master) Arm</text>
+  <text x="165" y="148" fill="#a78bfa" font-family="monospace" font-size="10.5" text-anchor="middle">Passive Teleop @ 50 Hz</text>
+
+  <!-- Vision Stream Box -->
+  <rect x="280" y="105" width="200" height="55" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1"/>
+  <text x="380" y="128" fill="#e2e8f0" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Multi-View Cameras</text>
+  <text x="380" y="148" fill="#a78bfa" font-family="monospace" font-size="10.5" text-anchor="middle">RGB-D / Overhead + Wrist</text>
+
+  <!-- MuJoCo Sim Box -->
+  <rect x="495" y="105" width="210" height="55" rx="6" fill="#0f172a" stroke="#7c3aed" stroke-width="1"/>
+  <text x="600" y="128" fill="#e2e8f0" font-family="sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">MuJoCo Physics Sim</text>
+  <text x="600" y="148" fill="#a78bfa" font-family="monospace" font-size="10.5" text-anchor="middle">URDF &amp; Collision Verification</text>
+
+  <!-- Arrow down to 2 -->
+  <path d="M 380 175 L 380 205" stroke="#a855f7" stroke-width="2.5"/>
+  <polygon points="380,212 375,203 385,203" fill="#a855f7"/>
+
+  <!-- 2. Hugging Face LeRobot Pipeline Section -->
+  <rect x="40" y="215" width="680" height="120" rx="8" fill="url(#tealGrad)" stroke="#14b8a6" stroke-width="1.5"/>
+  <text x="60" y="240" fill="#2dd4bf" font-family="monospace" font-size="12.5" font-weight="bold">2. HUGGING FACE LEROBOT &amp; IMITATION LEARNING ENGINE</text>
+
+  <!-- ACT Policy -->
+  <rect x="65" y="255" width="295" height="65" rx="6" fill="#0f172a" stroke="#0f766e" stroke-width="1"/>
+  <text x="212" y="278" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">ACT (Action Chunking Transformer)</text>
+  <text x="212" y="302" fill="#2dd4bf" font-family="monospace" font-size="10.5" text-anchor="middle">Causal Transformer + ResNet Visual Backbone</text>
+
+  <!-- Diffusion Policy -->
+  <rect x="390" y="255" width="305" height="65" rx="6" fill="#0f172a" stroke="#0f766e" stroke-width="1"/>
+  <text x="542" y="278" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Diffusion Policy Formulation</text>
+  <text x="542" y="302" fill="#2dd4bf" font-family="monospace" font-size="10.5" text-anchor="middle">DDPM Denoising Action Sequence @ 30Hz</text>
+
+  <!-- Arrow down to 3 -->
+  <path d="M 380 335 L 380 365" stroke="#14b8a6" stroke-width="2.5"/>
+  <polygon points="380,372 375,363 385,363" fill="#14b8a6"/>
+
+  <!-- 3. Real Robot Execution Section -->
+  <rect x="40" y="375" width="680" height="85" rx="8" fill="url(#blueGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="60" y="400" fill="#38bdf8" font-family="monospace" font-size="12.5" font-weight="bold">3. HARDWARE DEPLOYMENT &amp; MOTOR CLOSED-LOOP EXECUTION</text>
+
+  <!-- Follower Arm & Servos -->
+  <rect x="65" y="410" width="295" height="40" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+  <text x="212" y="435" fill="#f8fafc" font-family="sans-serif" font-size="11.5" text-anchor="middle">Follower SO-ARM (6-DOF Robotic Arm)</text>
+
+  <!-- STS3215 Serial Bus -->
+  <rect x="390" y="410" width="305" height="40" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+  <text x="542" y="435" fill="#f8fafc" font-family="monospace" font-size="11.5" text-anchor="middle">STS3215 Serial Bus Servos (1 Mbps Baud)</text>
+</svg>

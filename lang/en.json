@@ -10,8 +10,8 @@
   "intro": {
     "avatarAlt": "Haoyu Wang's Avatar",
     "title": "Hello, I'm Haoyu Wang",
-    "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Multi-Robot Motion Planning, Convex Safe Corridor, LO-MPC, Robotic Arm Control & Embedded Systems",
-    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Embedded Software · Expected: 12-15K"
+    "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Robotic Arm Manipulation, Embodied AI (LeRobot / ACT / VLA Imitation Learning), Safe Corridor Planning & Embedded Hardware",
+    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer · Expected: 12-15K"
   },
   "projects": {
     "title": "Featured Engineering Projects",
@@ -33,42 +33,42 @@
       "tags": ["Convex Safe Corridor", "Minimum Snap", "LO-MPC", "CasADi", "Multi-Robot", "Python", "Trajectory Optimization"]
     },
     "item1": {
+      "title": "SO-ARM & LeRobot Teleoperation & Embodied Imitation Learning",
+      "role": "Hardware R&D / Sim Exploration (2025.08 - 2026.01)",
+      "desc": "Built an open-source 6-DOF SO-ARM physical robot and master-slave teleoperation platform using STS3215 serial bus servos; formulated high-fidelity URDF dynamic simulation in MuJoCo, validating rigid body kinematics and grasp collisions; established real-time teleoperation data collection pipeline at 50Hz via Hugging Face LeRobot; trained ACT and Diffusion Policy models for tabletop manipulation, closing the loop from simulation to physical serial bus servo execution.",
+      "tags": ["SO-ARM", "Hugging Face LeRobot", "ACT Policy", "Diffusion Policy", "MuJoCo", "STS3215", "Teleoperation", "Embodied AI"]
+    },
+    "item2": {
       "title": "2025 RoboCup Rescue Robot Control & Multi-DOF Arm Manipulation",
       "role": "Lead Embedded Dev · Core R&D (2024.12 - 2025.05)",
       "desc": "Engineered the embedded control and manipulation stack for an urban search & rescue robot. Built bi-directional CAN communication linking upper Linux/ROS and lower STM32 MCU; solved multi-DOF arm analytical forward/inverse kinematics with joint constraints; designed 5th-order quintic polynomial smooth trajectories; tuned DJI M2006 BLDC cascade PID loops. Awarded 3rd Prize Nationally in RoboCup China Open 2025.",
       "tags": ["RoboCup National 3rd", "STM32", "CAN Bus", "Kinematics", "Quintic Spline", "M2006 PID", "FreeRTOS"]
     },
-    "item2": {
+    "item3": {
       "title": "LiDAR-IMU SLAM & MPPI Autonomous Navigation Stack in ROS 2",
       "role": "Autonomy R&D · Open-Source Reproduction (2025.06 - 2025.11)",
       "desc": "Engineered a modular ROS 2 (Humble) & Gazebo autonomy stack inspired by Nav2 and TrailBlazer. Leveraged Server-Plugin-Lifecycle architecture with Pluginlib dynamic plugin loading; integrated FAST-LIO2 tightly-coupled LiDAR-IMU 6-DOF odometry; deployed pointcloud PCA ground filter and incremental 3D ESDF cost field; planned B-spline global paths and executed high-dynamic local collision avoidance via MPPI controller.",
       "tags": ["ROS 2 Humble", "FAST-LIO2", "ESDF Mapping", "B-spline", "MPPI Control", "Lifecycle Node", "Gazebo"]
-    },
-    "item3": {
-      "title": "6-DOF Manipulator Dynamics Modeling & Impedance Control (WIP)",
-      "role": "Robotic Arm Track · Advanced R&D (Active Exploration)",
-      "desc": "Extending robotic arm control fundamentals: formulated Lagrangian dynamics mass matrix, Coriolis, and gravity vectors via Pinocchio library for computed torque feedforward; designed admittance/impedance hybrid force-position control loop with 6-axis F/T sensor model for compliant assembly; integrated ROS 2 MoveIt 2 Cartesian trajectory pipeline.",
-      "tags": ["MoveIt 2", "Pinocchio", "Lagrangian Dynamics", "Computed Torque", "Impedance Control", "Cartesian Trajectory"]
     }
   },
   "documents": {
     "title": "Technical Notes & Knowledge Base",
-    "desc": "Algorithm derivations, engineering architecture, and practical robotics insights",
+    "desc": "Manipulator control, embodied imitation learning, and practical robotics insights",
     "item0": {
       "title": "Convex Safe Corridor Construction & Topological Path Pruning",
       "desc": "A comprehensive deep dive into converting non-convex 2D/3D occupancy spaces into continuous convex polyhedron constraints for fast QP trajectory optimization."
     },
     "item1": {
-      "title": "Lexicographic MPC (LO-MPC) for Multi-Agent Formation with CasADi",
-      "desc": "Mathematical formulation of prioritized multi-objective optimization balancing formation rigidity, collision avoidance hard bounds, and control smoothness within 50ms."
+      "title": "SO-ARM Master-Slave Teleoperation & Hugging Face LeRobot ACT Policy",
+      "desc": "End-to-end implementation notes on STS3215 servo zero-calibration, master-slave angle mirroring, multi-view RGB-D dataset collection, and ACT Transformer policy training."
     },
     "item2": {
       "title": "Multi-DOF Manipulator Analytical IK & Quintic Spline Trajectory",
       "desc": "Standard DH modeling, kinematic singularity handling, and smooth quintic polynomial interpolation to eliminate start/stop acceleration jerks on physical servos."
     },
     "item3": {
-      "title": "Modular Autonomy Stack with ROS 2 Lifecycle Nodes & Pluginlib",
-      "desc": "Architectural principles from TrailBlazer: decoupling servers from algorithm plugins, state machine lifecycle management, and zero-downtime hot swapping."
+      "title": "Lexicographic MPC (LO-MPC) for Multi-Agent Formation with CasADi",
+      "desc": "Mathematical formulation of prioritized multi-objective optimization balancing formation rigidity, collision avoidance hard bounds, and control smoothness within 50ms."
     }
   },
   "timeline": {
@@ -85,24 +85,24 @@
       "desc": "Developed a full-stack Python/CasADi multi-robot motion planning simulation with safe corridors, minimum snap smoothing, and lexicographic MPC."
     },
     "event2": {
+      "date": "2025.08 - 2026.01",
+      "title": "SO-ARM Hardware & LeRobot Embodied Imitation Learning",
+      "desc": "Completed SO-ARM serial bus servo assembly, MuJoCo simulation, teleoperation streaming, and ACT/Diffusion manipulation policy training."
+    },
+    "event3": {
       "date": "2025.05",
       "title": "2025 RoboCup China Open · National 3rd Prize (Lead Embedded)",
       "desc": "Designed full CAN bus topology, DJI M2006 BLDC motor dual-loop PID, and multi-DOF manipulator kinematics & smooth grasping control."
     },
-    "event3": {
+    "event4": {
       "date": "2025.04",
       "title": "Engineering Practice & Innovation Contest · XJTU Silver Medal",
       "desc": "Led the electronic design and chassis motion control programming for an autonomous guided vehicle."
     },
-    "event4": {
+    "event5": {
       "date": "2024.04",
       "title": "MCM Mathematical Contest in Modeling · Honorable Mention",
       "desc": "Formulated mathematical models and numerical optimization algorithms, authoring the full English technical report."
-    },
-    "event5": {
-      "date": "2024.10",
-      "title": "Xi'an Jiaotong University Merit Scholarship",
-      "desc": "Awarded for top academic standing and excellence in automation coursework."
     },
     "event6": {
       "date": "2023.11",
@@ -117,15 +117,15 @@
   },
   "skills": {
     "title": "Technical Competencies",
-    "desc": "Systematic expertise in robotics motion planning, embedded control, and engineering tools",
+    "desc": "Systematic expertise in robotics motion planning, manipulator manipulation, and embedded control",
     "planning": "Motion Planning & Trajectory Optimization",
     "control": "Motion Control & Numerical Optimization",
-    "middleware": "Robotics Middleware & Simulation",
+    "manipulator": "Robotic Arm & Embodied AI",
     "embedded": "Embedded Systems & Hardware",
     "languages": "Programming Languages & Toolchains"
   },
   "footer": {
-    "copy": "Haoyu Wang · Robotics Planning & Control / Embedded Software Engineer",
+    "copy": "Haoyu Wang · Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI)",
     "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
   }
 }

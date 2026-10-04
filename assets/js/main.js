@@ -25,12 +25,25 @@
       ]
     },
     {
-      id: 'robocup-rescue-arm',
-      img: 'assets/images/robocup_arm_diag.svg',
+      id: 'soarm-lerobot',
+      img: 'assets/images/soarm_lerobot_diag.svg',
       hasGallery: false,
       titleKey: 'projects.item1.title',
       roleKey: 'projects.item1.role',
       descKey: 'projects.item1.desc',
+      tags: ['SO-ARM', 'Hugging Face LeRobot', 'ACT Policy', 'Diffusion Policy', 'MuJoCo', 'STS3215', 'Teleoperation', 'Embodied AI'],
+      links: [
+        { href: 'https://github.com/huggingface/lerobot', labelKey: 'projects.links.reference', icon: 'fab fa-github' },
+        { href: '#documents', labelKey: 'projects.links.docs', icon: 'fas fa-brain' }
+      ]
+    },
+    {
+      id: 'robocup-rescue-arm',
+      img: 'assets/images/robocup_arm_diag.svg',
+      hasGallery: false,
+      titleKey: 'projects.item2.title',
+      roleKey: 'projects.item2.role',
+      descKey: 'projects.item2.desc',
       tags: ['RoboCup 3rd Prize', 'STM32', 'CAN Bus', 'Kinematics', 'Quintic Spline', 'M2006 PID', 'FreeRTOS'],
       links: [
         { href: '#timeline', labelKey: 'projects.links.award', icon: 'fas fa-trophy' },
@@ -41,26 +54,13 @@
       id: 'trailblazer-ros2-nav',
       img: 'assets/images/trailblazer_arch_diag.svg',
       hasGallery: false,
-      titleKey: 'projects.item2.title',
-      roleKey: 'projects.item2.role',
-      descKey: 'projects.item2.desc',
+      titleKey: 'projects.item3.title',
+      roleKey: 'projects.item3.role',
+      descKey: 'projects.item3.desc',
       tags: ['ROS 2 Humble', 'FAST-LIO2', 'ESDF Mapping', 'B-spline', 'MPPI Control', 'Lifecycle Node', 'Gazebo'],
       links: [
         { href: 'https://github.com/Gerrylgr/TrailBlazer_Community', labelKey: 'projects.links.reference', icon: 'fab fa-github' },
         { href: '#documents', labelKey: 'projects.links.docs', icon: 'fas fa-sitemap' }
-      ]
-    },
-    {
-      id: 'manipulator-advanced-control',
-      img: null,
-      iconPlaceholder: 'fas fa-robot',
-      hasGallery: false,
-      titleKey: 'projects.item3.title',
-      roleKey: 'projects.item3.role',
-      descKey: 'projects.item3.desc',
-      tags: ['MoveIt 2', 'Pinocchio', 'Lagrangian Dynamics', 'Computed Torque', 'Impedance Control', 'Cartesian Trajectory'],
-      links: [
-        { href: '#skills', labelKey: 'projects.links.docs', icon: 'fas fa-brain' }
       ]
     }
   ];
@@ -75,8 +75,8 @@
     {
       titleKey: 'documents.item1.title',
       descKey: 'documents.item1.desc',
-      tags: ['LO-MPC', 'CasADi', 'Multi-Agent Formation'],
-      icon: 'fas fa-project-diagram'
+      tags: ['SO-ARM', 'LeRobot', 'ACT Policy', 'Teleoperation'],
+      icon: 'fas fa-brain'
     },
     {
       titleKey: 'documents.item2.title',
@@ -87,8 +87,8 @@
     {
       titleKey: 'documents.item3.title',
       descKey: 'documents.item3.desc',
-      tags: ['ROS 2', 'Lifecycle Node', 'Pluginlib'],
-      icon: 'fas fa-cubes'
+      tags: ['LO-MPC', 'CasADi', 'Multi-Agent Formation'],
+      icon: 'fas fa-project-diagram'
     }
   ];
 
@@ -105,6 +105,17 @@
 
   const TECH_STACK = [
     {
+      categoryKey: 'skills.manipulator',
+      icon: 'fas fa-robot',
+      items: [
+        '多自由度机械臂正逆运动学 (DH / 几何法)',
+        '空间五次多项式平滑插补轨迹规划',
+        'Hugging Face LeRobot 具身学习框架',
+        'ACT / Diffusion Policy 模仿学习模型',
+        '主从遥操作 (Teleoperation) 数据集录制'
+      ]
+    },
+    {
       categoryKey: 'skills.planning',
       icon: 'fas fa-route',
       items: [
@@ -112,7 +123,7 @@
         '凸安全走廊 (Convex Safe Corridor)',
         'Minimum Snap 高阶连续轨迹优化',
         'B-spline 样条曲线轨迹优化',
-        '多项式时间分配与非凸避障'
+        '多项式时间分配与非凸避障约束'
       ]
     },
     {
@@ -121,20 +132,9 @@
       items: [
         '词典序模型预测控制 (LO-MPC)',
         'CasADi / CVXPY QP/NLP 优化建模',
-        'MPPI (模型预测路径积分) 局部控制',
-        '多自由度串联机械臂正逆运动学 (DH)',
-        '数字 PID 闭环控制 (位置-速度-电流)'
-      ]
-    },
-    {
-      categoryKey: 'skills.middleware',
-      icon: 'fas fa-network-wired',
-      items: [
-        'ROS / ROS 2 (Humble) 通信与架构',
-        'Lifecycle Node 生命周期节点管理',
-        'Pluginlib 动态插件热插拔解耦',
-        'TF2 空间变换与 URDF 建模',
-        'Gazebo 仿真与 RViz 调试'
+        'MPPI (模型预测路径积分) 采样控制',
+        '数字 PID 闭环控制 (位置-速度-电流)',
+        'MuJoCo / Gazebo 高保真物理仿真'
       ]
     },
     {
@@ -144,7 +144,7 @@
         'STM32 (Cortex-M4) 底层固件开发',
         'FreeRTOS 实时多任务系统调度',
         'CAN 总线协议 (CAN 2.0B / CANopen)',
-        'USART / SPI / I2C / PWM 协议',
+        'STS3215 串行总线舵机驱动与协议',
         'DJI M2006 无刷电机与伺服驱动'
       ]
     },
@@ -153,7 +153,7 @@
       icon: 'fas fa-code',
       items: [
         'C/C++ (C++11/14, STL, 面向对象)',
-        'Python (NumPy, SciPy, CasADi)',
+        'Python (PyTorch, NumPy, CasADi)',
         'Linux / Ubuntu 生产开发环境',
         'CMake 构建体系 / Git 版本控制',
         'GDB / 逻辑分析仪 / 示波器联合调试'
@@ -186,9 +186,6 @@
              <div class="arch-diagram-box">
                <i class="${proj.iconPlaceholder}" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
                <h4 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">${t(proj.titleKey)}</h4>
-               <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; max-width: 320px;">
-                 Kinematics, Lagrangian Dynamics &amp; Impedance Force Control
-               </p>
              </div>
            </div>`;
 
@@ -240,7 +237,7 @@
     if (!container) return;
     const t = window.i18n ? window.i18n.get : (k) => k;
 
-    container.innerHTML = DOCUMENTS.map((doc, idx) => `
+    container.innerHTML = DOCUMENTS.map((doc) => `
       <div class="doc-card">
         <div class="doc-icon"><i class="${doc.icon}"></i></div>
         <div class="doc-content">
