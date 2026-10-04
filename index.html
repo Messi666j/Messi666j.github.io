@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="王浩宇 (Haoyu Wang) - 机器人运动规划与控制 / 嵌入式软件开发工程师个人作品集。">
+  <title>Haoyu Wang | Robotics &amp; Motion Control Portfolio</title>
+  <link rel="icon" href="assets/images/avatar.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo-terminal" aria-label="Terminal Home">
+        <span class="terminal-user">messi@robotics</span><span class="terminal-path">:~</span><span class="terminal-symbol">$</span><span class="terminal-cursor"></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#projects" class="nav-link">核心项目</a>
+        <a href="#skills" class="nav-link">专业技能</a>
+        <a href="#timeline" class="nav-link">里程碑</a>
+        <a href="assets/resume_haoyu_wang.pdf" target="_blank" class="nav-link"><i class="fas fa-file-pdf"></i> 简历PDF</a>
+        
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="切换明暗主题">
+          <i class="fas fa-sun"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>2026届求职中 · 意向: 机器人规划控制 / 嵌入式软件 · 期望: 12-15K</span>
+          </div>
+          <h1>
+            你好，我是 <span class="highlight-gradient">王浩宇</span>
+          </h1>
+          <p class="hero-subtitle">
+            西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
+            聚焦于<strong>多智能体运动规划、凸安全走廊 (Convex Safe Corridor)、模型预测控制 (MPC / LO-MPC)</strong>、<strong>多自由度机械臂运动控制</strong>以及<strong>ROS 2 / STM32 嵌入式实时系统</strong>研发。拥有扎实的运筹优化建模功底与从算法仿真到实物电机总线闭环的落地能力。
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-microchip"></i> 浏览核心项目</a>
+            <a href="assets/resume_haoyu_wang.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-download"></i> 获取纸质简历</a>
+            <a href="https://github.com/Messi666j" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub 主页</a>
+          </div>
+        </div>
+
+        <!-- Terminal Box -->
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="terminal-title">messi@xjtu-robotics-lab:~</span>
+            <span></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="t-prompt">$</span> <span class="t-cmd">whoami</span>
+            </div>
+            <div class="terminal-line t-out">
+              王浩宇 (Haoyu Wang) | 西安交通大学 自动化 985
+            </div>
+            <div class="terminal-line">
+              <span class="t-prompt">$</span> <span class="t-cmd">cat profile.json</span>
+            </div>
+            <div class="terminal-line t-out">
+              {<br>
+              &nbsp;&nbsp;<span class="t-str">"GPA"</span>: <span class="t-num">"3.45/4.0"</span>, <span class="t-str">"CET-6"</span>: <span class="t-num">604</span>, <span class="t-str">"CET-4"</span>: <span class="t-num">608</span>,<br>
+              &nbsp;&nbsp;<span class="t-str">"honors"</span>: [<span class="t-str">"RoboCup机器人中国赛国家三等奖"</span>, <span class="t-str">"国赛数模省一"</span>, <span class="t-str">"美赛H奖"</span>],<br>
+              &nbsp;&nbsp;<span class="t-str">"core_focus"</span>: [<span class="t-str">"Safe Corridor"</span>, <span class="t-str">"Minimum Snap"</span>, <span class="t-str">"LO-MPC"</span>, <span class="t-str">"ROS 2"</span>, <span class="t-str">"Arm Kinematics"</span>]<br>
+              }
+            </div>
+            <div class="terminal-line">
+              <span class="t-prompt">$</span> <span class="t-cmd">./run_pipeline_check.sh</span>
+            </div>
+            <div class="terminal-line t-out" style="color: var(--accent-green);">
+              [PASS] Convex Safe Corridor Generated (0.015s)<br>
+              [PASS] Minimum Snap Trajectory Feasible (C² continuous)<br>
+              [PASS] Lexicographic MPC Error &lt; 0.05m | Status: Optimal
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Featured Engineering Projects</span>
+        <h2 class="section-title">核心研发与工程项目</h2>
+        <p class="section-desc">包含本科毕业设计运动规划仿真、国家级机器人竞赛电控与机械臂协同、以及全栈 ROS 2 自主移动机器人导航架构。</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Corridor-LO-MPC (Thesis) -->
+        <article class="project-card">
+          <div class="project-media">
+            <span class="media-badge"><i class="fas fa-project-diagram"></i> 毕业设计 · 仿真与控制</span>
+            <img id="corridor-preview-img" src="assets/images/corridor_final.png" alt="Corridor LO-MPC Simulation Results">
+            <div class="gallery-tabs">
+              <button class="gallery-tab-btn active" data-img="assets/images/corridor_final.png">最终轨迹</button>
+              <button class="gallery-tab-btn" data-img="assets/images/corridor_stages.png">阶段演化</button>
+              <button class="gallery-tab-btn" data-img="assets/images/corridor_only.png">安全走廊</button>
+              <button class="gallery-tab-btn" data-img="assets/images/corridor_error.png">编队误差</button>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-role-badge">毕业设计 / 独立研发</span>
+              <span class="project-date">2025.12 - 2026.06</span>
+            </div>
+            <h3 class="project-title">基于凸安全走廊与 LO-MPC 的多移动机器人协同运动规划</h3>
+            <div class="project-tags">
+              <span class="tag">#Convex Safe Corridor</span>
+              <span class="tag">#Minimum Snap</span>
+              <span class="tag">#LO-MPC</span>
+              <span class="tag">#CasADi</span>
+              <span class="tag">#A*拓扑剪枝</span>
+            </div>
+            <p class="project-desc">
+              针对密集复杂障碍物环境下多移动机器人协同通行与动态避障难题，从零设计并实现了<strong>“栅格构建膨胀 $\rightarrow$ 全局路径搜索剪枝 $\rightarrow$ 凸安全走廊生成 $\rightarrow$ Minimum Snap 轨迹优化 $\rightarrow$ 词典序多目标 MPC 编队控制”</strong>全套运动规划与控制流水线。
+            </p>
+            <ul class="project-highlights">
+              <li><strong>凸安全走廊 (Convex Safe Corridor)</strong>：构建二维栅格与安全膨胀地图，采用改进 A* 算法搜索可行路径并拓扑剪枝；研发走廊生成算法，将非凸自由通行空间精准映射为一系列时空相连的凸多面体硬约束集。</li>
+              <li><strong>Minimum Snap 连续轨迹优化</strong>：在走廊凸边界约束下求解 QP 问题，生成高阶连续多项式航迹，保证速度、加速度与加加速度 (Jerk) 连续平滑可导，并完成时间分配优化。</li>
+              <li><strong>词典序模型预测控制 (LO-MPC)</strong>：基于 CasADi 搭建优化框架，按优先级分层求解编队保持刚度、动态避障硬约束与控制输入平滑性（控制周期 50ms）；在密集狭窄走廊中实测编队跟踪误差 &lt; 0.05m。</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Messi666j/Corridor-LO-MPC" target="_blank" class="btn btn-sm btn-primary"><i class="fab fa-github"></i> 查看源码仓库</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: RoboCup Rescue Robot -->
+        <article class="project-card reverse">
+          <div class="project-media">
+            <span class="media-badge"><i class="fas fa-trophy"></i> 国家三等奖 · 电控主力</span>
+            <img src="assets/images/robocup_arm_diag.svg" alt="RoboCup Rescue Robot Arm & Chassis Architecture">
+          </div>
+
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-role-badge">主力电控 / 核心研发</span>
+              <span class="project-date">2024.12 - 2025.05</span>
+            </div>
+            <h3 class="project-title">2025 RoboCup 救援机器人电控系统与机械臂协同控制</h3>
+            <div class="project-tags">
+              <span class="tag">#RoboCup国家三等奖</span>
+              <span class="tag">#机械臂正逆运动学</span>
+              <span class="tag">#五次多项式插补</span>
+              <span class="tag">#STM32</span>
+              <span class="tag">#CAN总线</span>
+              <span class="tag">#M2006串级PID</span>
+            </div>
+            <p class="project-desc">
+              面向崎岖地形搜救与精准抓取场景，负责搜救机器人核心电控系统与多自由度机械臂研发，构建了<strong>“上位机 Linux/ROS 决策 $\leftrightarrow$ CAN总线/串口总线 $\leftrightarrow$ STM32 下位机微控制器”</strong>双向高可靠通信架构。
+            </p>
+            <ul class="project-highlights">
+              <li><strong>机械臂运动学与轨迹平滑</strong>：针对废墟精准抓取，建立多自由度串联机械臂几何/解析正逆运动学模型，考虑机械臂各关节极限约束；设计笛卡尔空间到关节空间的五次多项式插补轨迹，消除启停冲击振动。</li>
+              <li><strong>高精度舵机伺服闭环</strong>：基于 PWM/CAN 总线实现多级数字舵机微秒级响应闭环，实现末端执行机构毫米级定位精度。</li>
+              <li><strong>底盘电机驱动与协同</strong>：完成大疆 M2006 无刷电机底层 CAN 通信驱动，设计位置-速度双闭环数字 PID 控制器与航位推算里程计，实现底盘平稳越障与机械臂动态抓取的紧密协同。</li>
+            </ul>
+            <div class="project-links">
+              <span class="btn btn-sm btn-secondary"><i class="fas fa-medal"></i> 2025 RoboCup 救援机器人国家三等奖</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: TrailBlazer ROS 2 Autonomy Stack -->
+        <article class="project-card">
+          <div class="project-media">
+            <span class="media-badge"><i class="fas fa-layer-group"></i> 全栈自主导航 · 模块化架构</span>
+            <img src="assets/images/trailblazer_arch_diag.svg" alt="TrailBlazer ROS 2 Autonomy Stack">
+          </div>
+
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-role-badge">自主导航研发 / 开源复现</span>
+              <span class="project-date">2025.06 - 2025.11</span>
+            </div>
+            <h3 class="project-title">基于 ROS 2 的激光SLAM与自主移动机器人导航系统</h3>
+            <div class="project-tags">
+              <span class="tag">#ROS 2 Humble</span>
+              <span class="tag">#FAST-LIO2 SLAM</span>
+              <span class="tag">#ESDF地图</span>
+              <span class="tag">#B-spline优化</span>
+              <span class="tag">#MPPI局部控制</span>
+              <span class="tag">#Lifecycle Node</span>
+            </div>
+            <p class="project-desc">
+              参考工业级 Nav2 规范与 TrailBlazer 开源框架的分层解耦设计，在 ROS 2 (Humble) 与 Gazebo 平台搭建了覆盖<strong>“传感器仿真 $\rightarrow$ FAST-LIO2 SLAM $\rightarrow$ ESDF建图 $\rightarrow$ B-spline轨迹优化 $\rightarrow$ MPPI局部控制”</strong>的完整自主导航系统。
+            </p>
+            <ul class="project-highlights">
+              <li><strong>Server-Plugin-Lifecycle 架构</strong>：各功能模块封装为独立生命周期节点 (Lifecycle Node)，算法层基于 ROS 2 <code>pluginlib</code> 实现动态加载与热插拔解耦。</li>
+              <li><strong>FAST-LIO2 与 ESDF 障碍场构建</strong>：集成 LiDAR-IMU 紧耦合里程计获得 200Hz 6-DOF 位姿；基于局部点云 PCA 进行地面分割，实时构建 3D 欧氏符号距离场 (ESDF) 生成精细障碍代价值。</li>
+              <li><strong>B-spline 与 MPPI 动态避障</strong>：全局路径通过 B 样条参数化优化获得动力学平滑曲线；局部控制器接入 MPPI (模型预测路径积分) 随机采样控制算法，兼顾非线性动力学约束，实现毫秒级动态避障。</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Gerrylgr/TrailBlazer_Community" target="_blank" class="btn btn-sm btn-secondary"><i class="fab fa-github"></i> 参考架构来源</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Mechanical Arm Advanced Control (Expansion Slot) -->
+        <article class="project-card reverse">
+          <div class="project-media">
+            <div class="arch-diagram-box">
+              <i class="fas fa-robot" style="font-size: 3.5rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
+              <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">6-DOF Manipulator Dynamics &amp; Impedance Control</h4>
+              <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; max-width: 320px;">
+                六自由度工业机械臂动力学建模、重力补偿、阻抗力控与 MoveIt 2 运动学规划 (持续迭代演进中)
+              </p>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-role-badge" style="background: rgba(139, 92, 246, 0.12); color: var(--accent-purple); border-color: rgba(139, 92, 246, 0.3);">机械臂专项 · 进阶研发</span>
+              <span class="project-date">Active Exploration</span>
+            </div>
+            <h3 class="project-title">六自由度机械臂动力学建模与柔顺阻抗控制 (扩展规划)</h3>
+            <div class="project-tags">
+              <span class="tag">#MoveIt 2</span>
+              <span class="tag">#Pinocchio</span>
+              <span class="tag">#动力学重力补偿</span>
+              <span class="tag">#导纳/阻抗力控</span>
+              <span class="tag">#笛卡尔空间轨迹</span>
+            </div>
+            <p class="project-desc">
+              立足于机械臂控制岗位的核心硬指标，将本科自动化控制理论进一步拓展到高自由度串联机械臂的非线性力控与笛卡尔空间精密插补领域。
+            </p>
+            <ul class="project-highlights">
+              <li><strong>拉格朗日动力学建模</strong>：利用 Pinocchio 刚体动力学库建立机械臂质量矩阵 $M(q)$、科里奥利力 $C(q,\dot{q})$ 与重力项 $G(q)$，实现计算力矩 (Computed Torque) 动力学前馈。</li>
+              <li><strong>位置-力混合柔顺控制</strong>：基于末端六维力传感器模型，设计导纳/阻抗控制环，使机械臂在接触装配任务中具备柔顺自适应能力。</li>
+              <li><strong>MoveIt 2 规划接口</strong>：打通 ROS 2 MoveIt 2 运动规划管线，实现笛卡尔空间直线/圆弧平滑插补及碰撞检测。</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Technical Competencies</span>
+        <h2 class="section-title">专业技能矩阵</h2>
+        <p class="section-desc">匹配 12-15K 机器人运动规划与控制 / 嵌入式开发工程师的核心技术要求。</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-route"></i></div>
+          <h3>路径规划与轨迹优化</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check"></i> A* / Hybrid A* 路径搜索与剪枝</li>
+            <li><i class="fas fa-check"></i> 凸安全走廊 (Convex Safe Corridor)</li>
+            <li><i class="fas fa-check"></i> Minimum Snap 高阶多项式轨迹</li>
+            <li><i class="fas fa-check"></i> B-spline 样条曲线轨迹优化</li>
+            <li><i class="fas fa-check"></i> 轨迹时间分配与非凸避障约束</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-compass"></i></div>
+          <h3>运动控制与运筹优化</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check"></i> 词典序多目标优化 (LO-MPC)</li>
+            <li><i class="fas fa-check"></i> CasADi / CVXPY QP/NLP 求解</li>
+            <li><i class="fas fa-check"></i> MPPI (模型预测路径积分)</li>
+            <li><i class="fas fa-check"></i> 多自由度机械臂正逆运动学 (DH)</li>
+            <li><i class="fas fa-check"></i> 数字 PID 串级控制 (位置-速度-电流)</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+          <h3>机器人中间件与仿真</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check"></i> ROS / ROS 2 (Humble) 核心通信</li>
+            <li><i class="fas fa-check"></i> Lifecycle Node 生命周期节点管理</li>
+            <li><i class="fas fa-check"></i> Pluginlib 动态插件热插拔</li>
+            <li><i class="fas fa-check"></i> TF2 空间坐标变换与 URDF 建模</li>
+            <li><i class="fas fa-check"></i> Gazebo 物理仿真与 RViz 调试</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-microchip"></i></div>
+          <h3>嵌入式软硬件底层</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check"></i> STM32 (Cortex-M4) 固件开发</li>
+            <li><i class="fas fa-check"></i> FreeRTOS 实时多任务系统</li>
+            <li><i class="fas fa-check"></i> CAN 总线 (CAN 2.0B / CANopen)</li>
+            <li><i class="fas fa-check"></i> USART / SPI / I2C / PWM 协议</li>
+            <li><i class="fas fa-check"></i> DJI M2006 无刷电机与伺服驱动</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <h3>语言与开发工具链</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-check"></i> C/C++ (C++11/14, STL, 面向对象)</li>
+            <li><i class="fas fa-check"></i> Python (NumPy, SciPy, CasADi)</li>
+            <li><i class="fas fa-check"></i> Linux / Ubuntu 生产开发环境</li>
+            <li><i class="fas fa-check"></i> CMake 构建体系 / Git 版本控制</li>
+            <li><i class="fas fa-check"></i> GDB / 逻辑分析仪 / 示波器调试</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="section" id="timeline">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-tag">Education &amp; Milestones</span>
+        <h2 class="section-title">教育背景与获奖荣誉</h2>
+        <p class="section-desc">笃行致远，保持对机器人算法与工程落地的高标准自我驱动。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2022.09 - 2026.06</div>
+            <h3 class="timeline-title">西安交通大学 (985 / 双一流) · 自动化专业 (工学学士)</h3>
+            <p class="timeline-desc">本科阶段综合成绩 GPA: <strong>3.45/4.0</strong>；大学英语六级 (CET-6): <strong>604分</strong>，大学英语四级 (CET-4): <strong>608分</strong>。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2025.05</div>
+            <h3 class="timeline-title">2025 RoboCup 机器人中国赛 · 全国三等奖</h3>
+            <p class="timeline-desc">救援机器人电控主力队员，负责整机 CAN 总线架构搭建、底盘驱动及多自由度机械臂正逆运动学解算与抓取闭环协同。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024.04</div>
+            <h3 class="timeline-title">美国大学生数学建模竞赛 (MCM) · Honorable Mention (H奖)</h3>
+            <p class="timeline-desc">主导数学算法建模与控制优化推导，完成英文学术论文撰写并获奖。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023.11</div>
+            <h3 class="timeline-title">全国大学生数学建模竞赛 · 省级一等奖 &amp; 国家励志奖学金</h3>
+            <p class="timeline-desc">扎实的运筹优化与算法推导功底，获评国家级奖学金与校级优秀奖学金。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-copy">
+        <p><strong>王浩宇 (Haoyu Wang)</strong> · 机器人规划控制 / 嵌入式软件开发工程师</p>
+        <p style="margin-top: 0.25rem;">Built with terminal aesthetics inspired by Lain's database · Hosted on GitHub Pages</p>
+      </div>
+
+      <div class="footer-socials">
+        <a href="mailto:2536381227@qq.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/Messi666j" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="assets/resume_haoyu_wang.pdf" target="_blank" class="social-link" title="PDF Resume"><i class="fas fa-file-pdf"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

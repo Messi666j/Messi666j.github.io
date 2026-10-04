@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="480" rx="12" fill="url(#bgGrad)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="760" height="42" rx="12" fill="#1e293b"/>
+  <circle cx="24" cy="21" r="5.5" fill="#ef4444"/>
+  <circle cx="42" cy="21" r="5.5" fill="#f59e0b"/>
+  <circle cx="60" cy="21" r="5.5" fill="#10b981"/>
+  <text x="380" y="26" fill="#94a3b8" font-family="monospace" font-size="13" font-weight="600" text-anchor="middle">RoboCup Rescue Robot: Dual-Layer Arm &amp; Chassis Control Stack</text>
+
+  <!-- Layer 1: Upper Decision Layer -->
+  <rect x="40" y="70" width="680" height="95" rx="8" fill="url(#cardGrad1)" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="60" y="96" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="bold">UPPER LAYER (Linux / ROS High-Level Decision)</text>
+  
+  <rect x="70" y="110" width="180" height="40" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+  <text x="160" y="135" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">Gamepad / Remote Teleop</text>
+
+  <rect x="290" y="110" width="180" height="40" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+  <text x="380" y="135" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">Cartesian Target (x, y, z, rpy)</text>
+
+  <rect x="510" y="110" width="180" height="40" rx="6" fill="#0f172a" stroke="#0284c7" stroke-width="1"/>
+  <text x="600" y="135" fill="#f8fafc" font-family="sans-serif" font-size="12" text-anchor="middle">State Machine &amp; Safety Monitor</text>
+
+  <!-- Bus Bridge Indicator -->
+  <line x1="380" y1="165" x2="380" y2="195" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="4,4"/>
+  <rect x="260" y="172" width="240" height="24" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="380" y="188" fill="#f59e0b" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">CAN Bus 2.0B / UART (100 Hz Sync)</text>
+
+  <!-- Layer 2: Embedded Controller Layer -->
+  <rect x="40" y="205" width="680" height="135" rx="8" fill="url(#cardGrad2)" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="60" y="232" fill="#2dd4bf" font-family="monospace" font-size="13" font-weight="bold">EMBEDDED CONTROL LAYER (STM32 MCU / FreeRTOS)</text>
+
+  <!-- Arm kinematics & Spline box -->
+  <rect x="65" y="245" width="295" height="80" rx="6" fill="#0f172a" stroke="#0d9488" stroke-width="1"/>
+  <text x="212" y="268" fill="#2dd4bf" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Multi-DOF Arm Kinematics &amp; Trajectory</text>
+  <text x="212" y="290" fill="#94a3b8" font-family="monospace" font-size="11" text-anchor="middle">Analytical IK + Joint Limits Check</text>
+  <text x="212" y="310" fill="#38bdf8" font-family="monospace" font-size="11" text-anchor="middle">5th-Order Quintic Spline Interpolation</text>
+
+  <!-- Chassis cascade PID box -->
+  <rect x="390" y="245" width="305" height="80" rx="6" fill="#0f172a" stroke="#0d9488" stroke-width="1"/>
+  <text x="542" y="268" fill="#2dd4bf" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Chassis Motion &amp; Odometry</text>
+  <text x="542" y="290" fill="#94a3b8" font-family="monospace" font-size="11" text-anchor="middle">Dead Reckoning Odometry (Wheel Kinematics)</text>
+  <text x="542" y="310" fill="#38bdf8" font-family="monospace" font-size="11" text-anchor="middle">Pos-Vel Dual-Loop PID Controller</text>
+
+  <!-- Connections down -->
+  <line x1="212" y1="340" x2="212" y2="370" stroke="#2dd4bf" stroke-width="2"/>
+  <line x1="542" y1="340" x2="542" y2="370" stroke="#2dd4bf" stroke-width="2"/>
+
+  <!-- Layer 3: Actuators -->
+  <rect x="40" y="370" width="680" height="85" rx="8" fill="url(#cardGrad3)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="60" y="396" fill="#c084fc" font-family="monospace" font-size="13" font-weight="bold">ACTUATION &amp; FEEDBACK (Physical Hardware)</text>
+
+  <rect x="65" y="405" width="295" height="40" rx="6" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="212" y="430" fill="#f8fafc" font-family="sans-serif" font-size="11.5" text-anchor="middle">Digital Bus Servos + Gripper Force Control</text>
+
+  <rect x="390" y="405" width="305" height="40" rx="6" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="542" y="430" fill="#f8fafc" font-family="sans-serif" font-size="11.5" text-anchor="middle">DJI M2006 BLDC Motors + C610 Speed ESCs</text>
+</svg>
