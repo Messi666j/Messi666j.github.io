@@ -1,0 +1,131 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "documents": "Docs",
+    "timeline": "Timeline",
+    "skills": "Stack",
+    "contact": "Contact"
+  },
+  "intro": {
+    "avatarAlt": "Haoyu Wang's Avatar",
+    "title": "Hello, I'm Haoyu Wang",
+    "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Multi-Robot Motion Planning, Convex Safe Corridor, LO-MPC, Robotic Arm Control & Embedded Systems",
+    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Embedded Software · Expected: 12-15K"
+  },
+  "projects": {
+    "title": "Featured Engineering Projects",
+    "imgAlt": "Project Media Preview",
+    "links": {
+      "code": "Repository",
+      "docs": "Documentation",
+      "demo": "Video Demo",
+      "website": "Homepage",
+      "paper": "Thesis Paper",
+      "award": "Award",
+      "zhihu": "Zhihu Column",
+      "reference": "Reference"
+    },
+    "item0": {
+      "title": "Convex Safe Corridor & LO-MPC Multi-Robot Motion Planning",
+      "role": "Undergraduate Thesis · Independent R&D (2025.12 - 2026.06)",
+      "desc": "Targeting multi-robot coordination and obstacle avoidance in dense environments, designed a full-stack motion planning pipeline from 2D safe inflation, modified A* topological pruning, convex safe corridor polygon construction, minimum snap continuous trajectory optimization, to CasADi lexicographic MPC. Formation tracking error < 0.05m with a 50ms control loop.",
+      "tags": ["Convex Safe Corridor", "Minimum Snap", "LO-MPC", "CasADi", "Multi-Robot", "Python", "Trajectory Optimization"]
+    },
+    "item1": {
+      "title": "2025 RoboCup Rescue Robot Control & Multi-DOF Arm Manipulation",
+      "role": "Lead Embedded Dev · Core R&D (2024.12 - 2025.05)",
+      "desc": "Engineered the embedded control and manipulation stack for an urban search & rescue robot. Built bi-directional CAN communication linking upper Linux/ROS and lower STM32 MCU; solved multi-DOF arm analytical forward/inverse kinematics with joint constraints; designed 5th-order quintic polynomial smooth trajectories; tuned DJI M2006 BLDC cascade PID loops. Awarded 3rd Prize Nationally in RoboCup China Open 2025.",
+      "tags": ["RoboCup National 3rd", "STM32", "CAN Bus", "Kinematics", "Quintic Spline", "M2006 PID", "FreeRTOS"]
+    },
+    "item2": {
+      "title": "LiDAR-IMU SLAM & MPPI Autonomous Navigation Stack in ROS 2",
+      "role": "Autonomy R&D · Open-Source Reproduction (2025.06 - 2025.11)",
+      "desc": "Engineered a modular ROS 2 (Humble) & Gazebo autonomy stack inspired by Nav2 and TrailBlazer. Leveraged Server-Plugin-Lifecycle architecture with Pluginlib dynamic plugin loading; integrated FAST-LIO2 tightly-coupled LiDAR-IMU 6-DOF odometry; deployed pointcloud PCA ground filter and incremental 3D ESDF cost field; planned B-spline global paths and executed high-dynamic local collision avoidance via MPPI controller.",
+      "tags": ["ROS 2 Humble", "FAST-LIO2", "ESDF Mapping", "B-spline", "MPPI Control", "Lifecycle Node", "Gazebo"]
+    },
+    "item3": {
+      "title": "6-DOF Manipulator Dynamics Modeling & Impedance Control (WIP)",
+      "role": "Robotic Arm Track · Advanced R&D (Active Exploration)",
+      "desc": "Extending robotic arm control fundamentals: formulated Lagrangian dynamics mass matrix, Coriolis, and gravity vectors via Pinocchio library for computed torque feedforward; designed admittance/impedance hybrid force-position control loop with 6-axis F/T sensor model for compliant assembly; integrated ROS 2 MoveIt 2 Cartesian trajectory pipeline.",
+      "tags": ["MoveIt 2", "Pinocchio", "Lagrangian Dynamics", "Computed Torque", "Impedance Control", "Cartesian Trajectory"]
+    }
+  },
+  "documents": {
+    "title": "Technical Notes & Knowledge Base",
+    "desc": "Algorithm derivations, engineering architecture, and practical robotics insights",
+    "item0": {
+      "title": "Convex Safe Corridor Construction & Topological Path Pruning",
+      "desc": "A comprehensive deep dive into converting non-convex 2D/3D occupancy spaces into continuous convex polyhedron constraints for fast QP trajectory optimization."
+    },
+    "item1": {
+      "title": "Lexicographic MPC (LO-MPC) for Multi-Agent Formation with CasADi",
+      "desc": "Mathematical formulation of prioritized multi-objective optimization balancing formation rigidity, collision avoidance hard bounds, and control smoothness within 50ms."
+    },
+    "item2": {
+      "title": "Multi-DOF Manipulator Analytical IK & Quintic Spline Trajectory",
+      "desc": "Standard DH modeling, kinematic singularity handling, and smooth quintic polynomial interpolation to eliminate start/stop acceleration jerks on physical servos."
+    },
+    "item3": {
+      "title": "Modular Autonomy Stack with ROS 2 Lifecycle Nodes & Pluginlib",
+      "desc": "Architectural principles from TrailBlazer: decoupling servers from algorithm plugins, state machine lifecycle management, and zero-downtime hot swapping."
+    }
+  },
+  "timeline": {
+    "title": "Education & Milestones",
+    "desc": "Academic foundation and competition honors in robotics and control theory",
+    "event0": {
+      "date": "2022.09 - 2026.06",
+      "title": "Xi'an Jiaotong University (985) · B.S. in Automation",
+      "desc": "Comprehensive GPA: 3.45/4.0; CET-6: 604, CET-4: 608. Solid foundation in modern control theory, numerical optimization, and embedded systems."
+    },
+    "event1": {
+      "date": "2025.12 - 2026.06",
+      "title": "Undergraduate Thesis: Convex Safe Corridor & LO-MPC Motion Planning",
+      "desc": "Developed a full-stack Python/CasADi multi-robot motion planning simulation with safe corridors, minimum snap smoothing, and lexicographic MPC."
+    },
+    "event2": {
+      "date": "2025.05",
+      "title": "2025 RoboCup China Open · National 3rd Prize (Lead Embedded)",
+      "desc": "Designed full CAN bus topology, DJI M2006 BLDC motor dual-loop PID, and multi-DOF manipulator kinematics & smooth grasping control."
+    },
+    "event3": {
+      "date": "2025.04",
+      "title": "Engineering Practice & Innovation Contest · XJTU Silver Medal",
+      "desc": "Led the electronic design and chassis motion control programming for an autonomous guided vehicle."
+    },
+    "event4": {
+      "date": "2024.04",
+      "title": "MCM Mathematical Contest in Modeling · Honorable Mention",
+      "desc": "Formulated mathematical models and numerical optimization algorithms, authoring the full English technical report."
+    },
+    "event5": {
+      "date": "2024.10",
+      "title": "Xi'an Jiaotong University Merit Scholarship",
+      "desc": "Awarded for top academic standing and excellence in automation coursework."
+    },
+    "event6": {
+      "date": "2023.11",
+      "title": "National Mathematical Modeling Contest · Provincial 1st & National Encouragement Scholarship",
+      "desc": "Recognized for mathematical algorithm derivation and optimization excellence with national-level scholarship."
+    },
+    "event7": {
+      "date": "2022.10",
+      "title": "XJTU Campus Football League Champion",
+      "desc": "Key player in winning the university-wide championship, demonstrating strong teamwork, resilience, and discipline."
+    }
+  },
+  "skills": {
+    "title": "Technical Competencies",
+    "desc": "Systematic expertise in robotics motion planning, embedded control, and engineering tools",
+    "planning": "Motion Planning & Trajectory Optimization",
+    "control": "Motion Control & Numerical Optimization",
+    "middleware": "Robotics Middleware & Simulation",
+    "embedded": "Embedded Systems & Hardware",
+    "languages": "Programming Languages & Toolchains"
+  },
+  "footer": {
+    "copy": "Haoyu Wang · Robotics Planning & Control / Embedded Software Engineer",
+    "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
+  }
+}
