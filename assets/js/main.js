@@ -20,6 +20,7 @@
       descKey: 'projects.item0.desc',
       tags: ['Convex Safe Corridor', 'Minimum Snap', 'LO-MPC', 'CasADi', 'Multi-Robot', 'Python', 'Trajectory Optimization'],
       links: [
+        { isDemo: true, targetId: 'corridor-lo-mpc', targetSrc: 'assets/images/corridor_evolution.gif', labelKey: 'projects.links.demo', icon: 'fas fa-play-circle' },
         { href: 'https://github.com/Messi666j/Corridor-LO-MPC', labelKey: 'projects.links.code', icon: 'fab fa-github' },
         { href: '#documents', labelKey: 'projects.links.docs', icon: 'fas fa-book' }
       ]
@@ -40,10 +41,10 @@
       descKey: 'projects.item1.desc',
       tags: ['ROS 2 Humble', 'Pinocchio', 'DLS IK (<0.1mm)', 'MoveIt 2', 'LeRobot', 'Diffusion Policy', 'ACT', 'MuJoCo', 'STS3215'],
       links: [
+        { isDemo: true, targetId: 'arm-grabbing', targetSrc: 'assets/images/soarm_pusht_demo1.gif', labelKey: 'projects.links.demo', icon: 'fas fa-play-circle' },
         { href: 'https://github.com/Messi666j/Arm_Grabbing', labelKey: 'projects.links.code', icon: 'fab fa-github' },
         { href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/phase2_mastery_guide.md', labelKey: 'projects.links.docs', icon: 'fas fa-book-open' },
-        { href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/nanny_tutorial_and_interview_guide.md', labelKey: 'projects.links.reference', icon: 'fas fa-graduation-cap' },
-        { href: 'https://huggingface.co/datasets/qian1dqs/so100-pusht', labelKey: 'projects.links.website', icon: 'fas fa-brain' }
+        { href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/nanny_tutorial_and_interview_guide.md', labelKey: 'projects.links.reference', icon: 'fas fa-graduation-cap' }
       ]
     },
     {
@@ -204,15 +205,20 @@
 
     container.innerHTML = PROJECTS.map((proj, idx) => {
       const isReverse = idx % 2 === 1 ? 'reverse' : '';
+      const isGifInitial = proj.img && proj.img.endsWith('.gif');
       const mediaHtml = proj.img
         ? `<div class="project-media">
-             <div class="project-media-wrapper">
+             <div class="project-media-wrapper" data-target="img-${proj.id}">
+               <div id="badge-${proj.id}" class="media-live-badge ${isGifInitial ? '' : 'hidden'}">
+                 <span class="live-dot"></span> <span class="live-text">${currentLang === 'en' ? 'LIVE DEMO' : '动态演示'}</span>
+               </div>
+               <div class="media-zoom-hint"><i class="fas fa-search-plus"></i> ${currentLang === 'en' ? 'Click to zoom' : '点击放大'}</div>
                <img id="img-${proj.id}" src="${proj.img}" alt="${t(proj.titleKey)}" loading="lazy">
              </div>
              ${proj.hasGallery ? `
                <div class="gallery-tabs">
                  ${proj.gallery.map((g, gIdx) => `
-                   <button class="gallery-tab-btn ${gIdx === 0 ? 'active' : ''}" data-target="img-${proj.id}" data-src="${g.src}">
+                   <button class="gallery-tab-btn ${gIdx === 0 ? 'active' : ''}" data-target="img-${proj.id}" data-src="${g.src}" data-proj="${proj.id}">
                      ${currentLang === 'en' ? g.labelEn : g.labelZh}
                    </button>
                  `).join('')}
@@ -227,11 +233,20 @@
            </div>`;
 
       const tagsHtml = proj.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
-      const linksHtml = proj.links.map(link => `
-        <a href="${link.href}" ${link.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-sm btn-secondary">
-          <i class="${link.icon}"></i> ${t(link.labelKey)}
-        </a>
-      `).join('');
+      const linksHtml = proj.links.map(link => {
+        if (link.isDemo) {
+          return `
+            <button class="btn btn-sm btn-demo demo-trigger" data-target="img-${link.targetId}" data-src="${link.targetSrc}" data-proj="${link.targetId}">
+              <i class="${link.icon}"></i> <span>${t(link.labelKey)}</span>
+            </button>
+          `;
+        }
+        return `
+          <a href="${link.href}" ${link.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-sm btn-secondary">
+            <i class="${link.icon}"></i> <span>${t(link.labelKey)}</span>
+          </a>
+        `;
+      }).join('');
 
       return `
         <article class="project-card ${isReverse}">
@@ -249,15 +264,26 @@
       `;
     }).join('');
 
-    // Attach Gallery Switching Listeners with smooth animation
+    // Attach Gallery Switching Listeners with smooth animation and badge sync
     document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const parent = btn.closest('.gallery-tabs');
         parent.querySelectorAll('.gallery-tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const targetImgId = btn.getAttribute('data-target');
         const newSrc = btn.getAttribute('data-src');
+        const projId = btn.getAttribute('data-proj');
         const img = document.getElementById(targetImgId);
+        const badge = document.getElementById(`badge-${projId}`);
+
+        if (badge) {
+          if (newSrc.endsWith('.gif')) {
+            badge.classList.remove('hidden');
+          } else {
+            badge.classList.add('hidden');
+          }
+        }
+
         if (img) {
           img.style.opacity = '0.3';
           img.style.transform = 'scale(0.98)';
@@ -268,6 +294,76 @@
           }, 150);
         }
       });
+    });
+
+    // Attach Demo Trigger button listeners
+    document.querySelectorAll('.demo-trigger').forEach(demoBtn => {
+      demoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetImgId = demoBtn.getAttribute('data-target');
+        const targetSrc = demoBtn.getAttribute('data-src');
+        const projId = demoBtn.getAttribute('data-proj');
+
+        // Find the matching gallery tab button and trigger it
+        const tabBtn = document.querySelector(`.gallery-tab-btn[data-target="${targetImgId}"][data-src="${targetSrc}"]`);
+        if (tabBtn) {
+          tabBtn.click();
+        }
+
+        // Smooth scroll to the media preview
+        const img = document.getElementById(targetImgId);
+        if (img) {
+          img.closest('.project-card')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+
+    // Attach Lightbox Modal click listeners on media
+    document.querySelectorAll('.project-media-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        const img = wrapper.querySelector('img');
+        if (img && img.src) {
+          openMediaModal(img.src, img.alt);
+        }
+      });
+    });
+  }
+
+  function openMediaModal(src, captionText) {
+    const modal = document.getElementById('media-modal');
+    const modalImg = document.getElementById('media-modal-img');
+    const caption = document.querySelector('.media-modal-caption');
+    if (!modal || !modalImg) return;
+
+    modalImg.src = src;
+    if (caption) caption.textContent = captionText || '';
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // prevent background scrolling
+  }
+
+  function closeMediaModal() {
+    const modal = document.getElementById('media-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function initMediaModal() {
+    const modal = document.getElementById('media-modal');
+    if (!modal) return;
+
+    const closeBtn = modal.querySelector('.media-modal-close');
+    const backdrop = modal.querySelector('.media-modal-backdrop');
+
+    closeBtn?.addEventListener('click', closeMediaModal);
+    backdrop?.addEventListener('click', closeMediaModal);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeMediaModal();
+      }
     });
   }
 
@@ -392,6 +488,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initLangToggle();
+    initMediaModal();
     renderAll();
   });
 })();

@@ -12,7 +12,8 @@
     document.documentElement.setAttribute('data-theme', savedTheme);
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.2">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -131,7 +132,19 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/main.js"></script>
+  <!-- Fullscreen Media Modal / Lightbox -->
+  <div id="media-modal" class="media-modal" aria-hidden="true">
+    <div class="media-modal-backdrop"></div>
+    <div class="media-modal-container">
+      <button class="media-modal-close" aria-label="Close Preview">&times;</button>
+      <div class="media-modal-body">
+        <img id="media-modal-img" src="" alt="Fullscreen Preview">
+      </div>
+      <div class="media-modal-caption"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/i18n.js?v=2.2"></script>
+  <script src="assets/js/main.js?v=2.2"></script>
 </body>
 </html>
