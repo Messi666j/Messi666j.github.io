@@ -10,8 +10,8 @@
   "intro": {
     "avatarAlt": "Haoyu Wang's Avatar",
     "title": "Hello, I'm Haoyu Wang",
-    "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Robotic Arm Manipulation, Embodied AI (LeRobot / ACT / VLA Imitation Learning), Safe Corridor Planning & Embedded Hardware",
-    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer · Expected: 12-15K"
+    "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Full-Stack Manipulator Control (Pinocchio / MoveIt 2), Embodied AI (LeRobot / ACT / Diffusion Policy), Multi-Agent Safe Corridor Planning & Embedded Hardware",
+    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI) · Expected: 12-15K"
   },
   "projects": {
     "title": "Featured Engineering Projects",
@@ -33,10 +33,10 @@
       "tags": ["Convex Safe Corridor", "Minimum Snap", "LO-MPC", "CasADi", "Multi-Robot", "Python", "Trajectory Optimization"]
     },
     "item1": {
-      "title": "SO-ARM & LeRobot Teleoperation & Embodied Imitation Learning",
-      "role": "Hardware R&D / Sim Exploration (2025.08 - 2026.01)",
-      "desc": "Built an open-source 6-DOF SO-ARM physical robot and master-slave teleoperation platform using STS3215 serial bus servos; formulated high-fidelity URDF dynamic simulation in MuJoCo, validating rigid body kinematics and grasp collisions; established real-time teleoperation data collection pipeline at 50Hz via Hugging Face LeRobot; trained ACT and Diffusion Policy models for tabletop manipulation, closing the loop from simulation to physical serial bus servo execution.",
-      "tags": ["SO-ARM", "Hugging Face LeRobot", "ACT Policy", "Diffusion Policy", "MuJoCo", "STS3215", "Teleoperation", "Embodied AI"]
+      "title": "Arm_Grabbing: SO-ARM101 Hybrid Control & Embodied AI System",
+      "role": "Full-Stack R&D · Simulation to Real Deployment (2025.08 - 2026.03)",
+      "desc": "Built an open-source 6-DOF robotic arm manipulation platform (SO-ARM101 / SO-100M) bridging traditional Model-Based kinematics/dynamics control foundations with Learning-Based embodied imitation learning strategies.<br><b>【Model-Based Planning & Control】</b>Exported 13 CAD components via OnShape to construct parameterized URDF/Xacro models with verified physical inertia; formulated forward/inverse kinematics using Pinocchio, deriving a Damped Least Squares (DLS IK) numerical solver with λ² damping regularization to eliminate kinematic singularities, achieving Cartesian tracking error &lt; 0.1mm; implemented quintic polynomial smooth interpolation, 3D lemniscate (figure-8) trajectory planning, and Yoshikawa manipulability optimization; configured the MoveIt 2 planning pipeline, optimizing the SRDF collision matrix (-85% self-collision check latency), and executing closed-loop 50Hz control via FollowJointTrajectory action.<br><b>【Learning-Based Embodied Policy】</b>Implemented STS3215 serial bus servo drivers to establish a master-slave (Leader-Follower) teleoperation streaming pipeline; collected standardized 50Hz multi-view datasets via Hugging Face LeRobot and released them open-source; deployed ACT and Diffusion Policy models for tabletop manipulation, closing the loop from MuJoCo physics simulation to physical hardware execution.",
+      "tags": ["ROS 2 Humble", "Pinocchio", "DLS IK (<0.1mm)", "MoveIt 2", "LeRobot", "Diffusion Policy", "ACT", "MuJoCo", "STS3215"]
     },
     "item2": {
       "title": "2025 RoboCup Rescue Robot Control & Multi-DOF Arm Manipulation",
@@ -53,22 +53,22 @@
   },
   "documents": {
     "title": "Technical Notes & Knowledge Base",
-    "desc": "Manipulator control, embodied imitation learning, and practical robotics insights",
+    "desc": "Manipulator control algorithms, MoveIt 2 architecture, and practical engineering insights",
     "item0": {
-      "title": "Convex Safe Corridor Construction & Topological Path Pruning",
-      "desc": "A comprehensive deep dive into converting non-convex 2D/3D occupancy spaces into continuous convex polyhedron constraints for fast QP trajectory optimization."
+      "title": "Manipulator Kinematics, MoveIt 2 & Trajectory Planning Mastery Guide",
+      "desc": "Mathematical derivation of homogeneous matrix multiplication, Damped Least Squares (DLS IK) singularity regularization, Yoshikawa manipulability, quintic polynomial interpolation, and MoveIt 2 planning pipeline internals."
     },
     "item1": {
-      "title": "SO-ARM Master-Slave Teleoperation & Hugging Face LeRobot ACT Policy",
-      "desc": "End-to-end implementation notes on STS3215 servo zero-calibration, master-slave angle mirroring, multi-view RGB-D dataset collection, and ACT Transformer policy training."
+      "title": "Full-Stack Robotic Arm Development: Step-by-Step & Interview Q&A Guide",
+      "desc": "Standard industrial workflow from pure simulation verification to real-world deployment (Sim-to-Real), code-level breakdown of DLS numerical iteration, and frequent technical interview questions."
     },
     "item2": {
-      "title": "Multi-DOF Manipulator Analytical IK & Quintic Spline Trajectory",
-      "desc": "Standard DH modeling, kinematic singularity handling, and smooth quintic polynomial interpolation to eliminate start/stop acceleration jerks on physical servos."
+      "title": "SO-ARM101 CAD URDF Modeling & ROS 2 TF2 Dynamic Transform Tree Guide",
+      "desc": "Complete engineering guide from exporting 13 OnShape 3D meshes, Xacro parametric macros, inertia matrix calibration, to RViz 2 50Hz dynamic TF tree broadcasting."
     },
     "item3": {
-      "title": "Lexicographic MPC (LO-MPC) for Multi-Agent Formation with CasADi",
-      "desc": "Mathematical formulation of prioritized multi-objective optimization balancing formation rigidity, collision avoidance hard bounds, and control smoothness within 50ms."
+      "title": "Convex Safe Corridor Construction & Topological Path Pruning",
+      "desc": "A comprehensive deep dive into converting non-convex 2D/3D occupancy spaces into continuous convex polyhedron constraints for fast QP trajectory optimization."
     }
   },
   "timeline": {
@@ -85,9 +85,9 @@
       "desc": "Developed a full-stack Python/CasADi multi-robot motion planning simulation with safe corridors, minimum snap smoothing, and lexicographic MPC."
     },
     "event2": {
-      "date": "2025.08 - 2026.01",
-      "title": "SO-ARM Hardware & LeRobot Embodied Imitation Learning",
-      "desc": "Completed SO-ARM serial bus servo assembly, MuJoCo simulation, teleoperation streaming, and ACT/Diffusion manipulation policy training."
+      "date": "2025.08 - 2026.03",
+      "title": "Arm_Grabbing Hybrid Control & Embodied Imitation Learning R&D",
+      "desc": "Formulated SO-ARM101 CAD URDF model, Pinocchio DLS IK solver, MoveIt 2 motion planning, teleoperation streaming, and LeRobot Diffusion Policy training."
     },
     "event3": {
       "date": "2025.05",
@@ -118,9 +118,9 @@
   "skills": {
     "title": "Technical Competencies",
     "desc": "Systematic expertise in robotics motion planning, manipulator manipulation, and embedded control",
+    "manipulator": "Robotic Arm & Embodied AI",
     "planning": "Motion Planning & Trajectory Optimization",
     "control": "Motion Control & Numerical Optimization",
-    "manipulator": "Robotic Arm & Embodied AI",
     "embedded": "Embedded Systems & Hardware",
     "languages": "Programming Languages & Toolchains"
   },

@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16293d" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#101e2e" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10362c" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0c2620" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c1a40" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#1c112b" stop-opacity="0.85" />
+    </linearGradient>
+
+    <marker id="arrowM" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowG" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+  </defs>
+
+  <style>
+    .m-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #f0f6fc; }
+    .m-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; fill: #8b949e; font-size: 13px; }
+    .b-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; font-size: 14px; fill: #38bdf8; }
+    .t-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11.5px; fill: #c9d1d9; }
+    .t-dim { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #8b949e; }
+  </style>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#mBg)" rx="12" stroke="#30363d" stroke-width="1.5" />
+
+  <!-- Subtle Grid -->
+  <g opacity="0.12">
+    <path d="M 40 0 V 540 M 120 0 V 540 M 200 0 V 540 M 280 0 V 540 M 360 0 V 540 M 440 0 V 540 M 520 0 V 540 M 600 0 V 540 M 680 0 V 540 M 760 0 V 540 M 840 0 V 540 M 920 0 V 540" stroke="#8b949e" stroke-width="0.5" />
+    <path d="M 0 40 H 960 M 0 120 H 960 M 0 200 H 960 M 0 280 H 960 M 0 360 H 960 M 0 440 H 960 M 0 520 H 960" stroke="#8b949e" stroke-width="0.5" />
+  </g>
+
+  <!-- Top Title -->
+  <g transform="translate(40, 36)">
+    <text class="m-title" font-size="20">MoveIt 2 工业级运动规划与轨迹控制管道 (SO-ARM101)</text>
+    <text class="m-sub" y="24">Planning Scene Monitor ➔ OMPL 采样避障 ➔ SRDF 碰撞矩阵优化 ➔ FollowJointTrajectory 闭环</text>
+  </g>
+
+  <!-- Top Pipeline Flow (4 Main Blocks) -->
+  <g transform="translate(40, 85)">
+    <!-- 1. Input & Planning Scene -->
+    <g transform="translate(0, 0)">
+      <rect width="200" height="135" rx="8" fill="url(#cardGrad1)" stroke="#38bdf8" stroke-width="1.2" />
+      <text class="b-title" x="14" y="26">1. 目标设定与环境监控</text>
+      <text class="t-desc" x="14" y="52">• RViz 2 交互式 6D 标记</text>
+      <text class="t-desc" x="14" y="72">• Planning Scene 场景监控</text>
+      <text class="t-desc" x="14" y="92">• TF2 动态坐标树订阅</text>
+      <text class="t-dim" x="14" y="114">base_link ➔ gripper_link</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M 200 68 L 235 68" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowM)" />
+
+    <!-- 2. SRDF & Collision -->
+    <g transform="translate(240, 0)">
+      <rect width="205" height="135" rx="8" fill="url(#cardGrad2)" stroke="#34d399" stroke-width="1.2" />
+      <text class="b-title" x="14" y="26" fill="#34d399">2. SRDF 碰撞矩阵优化</text>
+      <text class="t-desc" x="14" y="52">• 13 构件相邻碰撞对禁用</text>
+      <text class="t-desc" x="14" y="72">• 碰撞检测计算耗时 -85%</text>
+      <text class="t-desc" x="14" y="92">• FCL 快速连续碰撞库</text>
+      <text class="t-dim" x="14" y="114">Never/Adjacent disable tags</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M 445 68 L 480 68" stroke="#34d399" stroke-width="2" marker-end="url(#arrowG)" />
+
+    <!-- 3. OMPL Planners -->
+    <g transform="translate(485, 0)">
+      <rect width="205" height="135" rx="8" fill="url(#cardGrad1)" stroke="#38bdf8" stroke-width="1.2" />
+      <text class="b-title" x="14" y="26">3. OMPL 运动规划流水线</text>
+      <text class="t-desc" x="14" y="52">• RRTConnect 极速双向树</text>
+      <text class="t-desc" x="14" y="72">• PRM 概率路图全局重用</text>
+      <text class="t-desc" x="14" y="92">• 关节速度与加速度限幅</text>
+      <text class="t-dim" x="14" y="114">joint_limits.yaml 严格约束</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M 690 68 L 725 68" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowM)" />
+
+    <!-- 4. Execution Controller -->
+    <g transform="translate(730, 0)">
+      <rect width="150" height="135" rx="8" fill="url(#cardGrad3)" stroke="#c084fc" stroke-width="1.2" />
+      <text class="b-title" x="14" y="26" fill="#c084fc">4. 控制器执行</text>
+      <text class="t-desc" x="14" y="52">• FollowJointTraj</text>
+      <text class="t-desc" x="14" y="72">• 50Hz 闭环插值</text>
+      <text class="t-desc" x="14" y="92">• 仿真/实机透明</text>
+      <text class="t-dim" x="14" y="114">ROS 2 Action 架构</text>
+    </g>
+  </g>
+
+  <!-- Bottom Detailed Architecture Breakdown -->
+  <g transform="translate(40, 245)">
+    <!-- Left Box: Kinematics Plugin -->
+    <rect width="425" height="255" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.2" />
+    <rect width="425" height="34" rx="10" fill="#21262d" />
+    <text class="m-title" x="16" y="22" font-size="14">⚡ 运动学插件与数值收敛对比 (Kinematics Solver)</text>
+
+    <g transform="translate(16, 48)">
+      <rect width="393" height="52" rx="6" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+      <text class="t-desc" x="12" y="22" font-weight="600" fill="#38bdf8">KDL / MoveIt 标准求解器：</text>
+      <text class="t-dim" x="12" y="40">牛顿法易陷入局部极小值；在奇异点处分母趋近零，产生关节速度突变与解算震荡。</text>
+    </g>
+
+    <g transform="translate(16, 110)">
+      <rect width="393" height="74" rx="6" fill="#09211c" stroke="#34d399" stroke-width="1" />
+      <text class="t-desc" x="12" y="22" font-weight="600" fill="#34d399">自研 Pinocchio DLS 阻尼最小二乘求解器：</text>
+      <text class="t-dim" x="12" y="40">J^T (J J^T + λ² I)^(-1) 矩阵全秩正定正则化，彻底消除奇异点爆炸；</text>
+      <text class="t-dim" x="12" y="58">实测三维笛卡尔末端跟踪残差 &lt; 0.1 mm，5轴欠驱动末端位姿优雅自适应。</text>
+    </g>
+
+    <g transform="translate(16, 194)">
+      <rect width="393" height="42" rx="6" fill="#201a30" stroke="#c084fc" stroke-width="1" />
+      <text class="t-desc" x="12" y="26" font-weight="600" fill="#c084fc">Yoshikawa 操纵度评估：</text>
+      <text class="t-dim" x="150" y="26">w(q) = √(det(J J^T))，定量衡量机械臂灵活度。</text>
+    </g>
+  </g>
+
+  <g transform="translate(495, 245)">
+    <!-- Right Box: Planning & Trajectory Specs -->
+    <rect width="425" height="255" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.2" />
+    <rect width="425" height="34" rx="10" fill="#21262d" />
+    <text class="m-title" x="16" y="22" font-size="14">🎯 轨迹规划算法特性 (Trajectory Smoothing)</text>
+
+    <!-- Table/Grid of key features -->
+    <g transform="translate(16, 48)">
+      <!-- Row 1 -->
+      <rect width="190" height="88" rx="6" fill="#1a2332" stroke="#38bdf8" stroke-width="0.8" />
+      <text class="b-title" x="12" y="24" font-size="12">五次多项式平滑插补</text>
+      <text class="t-dim" x="12" y="44">s(t) = 10s³ - 15s⁴ + 6s⁵</text>
+      <text class="t-dim" x="12" y="62">起始/终点速度与加速度为0</text>
+      <text class="t-dim" x="12" y="78">彻底消除电机机械冲击</text>
+
+      <!-- Row 2 -->
+      <rect x="202" width="190" height="88" rx="6" fill="#152b24" stroke="#34d399" stroke-width="0.8" />
+      <text class="b-title" x="214" y="24" font-size="12" fill="#34d399">3D 空间 8 字形轨迹</text>
+      <text class="t-dim" x="214" y="44">Bernoulli 双扭线参数方程</text>
+      <text class="t-dim" x="214" y="62">空间三维曲面连续变姿</text>
+      <text class="t-dim" x="214" y="78">微米级闭环复现精度</text>
+    </g>
+
+    <g transform="translate(16, 148)">
+      <rect width="393" height="88" rx="6" fill="#1f242c" stroke="#484f58" stroke-width="1" />
+      <text class="b-title" x="12" y="24" font-size="12" fill="#f0f6fc">MoveIt 2 与 ROS 2 集成优势：</text>
+      <text class="t-dim" x="12" y="46">✓ 完整 SRDF 语义描述支持夹爪开合命名组 (arm &amp; gripper)</text>
+      <text class="t-dim" x="12" y="64">✓ 纯仿真与实物透明迁移：统一由 FollowJointTrajectory Action 驱动</text>
+      <text class="t-dim" x="12" y="82">✓ 严苛关节限位保护：joint_limits.yaml 限制各关节最大角加速度</text>
+    </g>
+  </g>
+</svg>

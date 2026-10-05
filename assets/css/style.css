@@ -371,6 +371,15 @@ nav {
   font-size: 0.85rem;
 }
 
+.btn-xs {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 /* =========================================
    6. Projects Section
    ========================================= */
@@ -436,20 +445,35 @@ nav {
 
 .project-media {
   position: relative;
-  background: #000;
+  background: #0d1117;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-right: 1px solid var(--border-light);
-  min-height: 320px;
+  min-height: 350px;
   overflow: hidden;
+}
+
+.project-media-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
 .project-media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.2s ease;
+  height: auto;
+  max-height: 420px;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  border-radius: var(--radius-sm);
 }
 
 .arch-diagram-box {
@@ -465,35 +489,52 @@ nav {
 
 .gallery-tabs {
   position: absolute;
-  bottom: 0.75rem;
+  bottom: 0.85rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 0.4rem;
-  background: rgba(13, 17, 23, 0.85);
-  border: 1px solid var(--border-strong);
-  padding: 0.25rem 0.5rem;
+  background: rgba(13, 17, 23, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.3rem 0.55rem;
   border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   z-index: 3;
+  max-width: 95%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery-tab-btn {
-  background: none;
-  border: none;
+  background: transparent;
+  border: 1px solid transparent;
   color: #94a3b8;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 500;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: var(--transition-base);
+  white-space: nowrap;
+  transition: all var(--transition-base);
 }
 
-.gallery-tab-btn.active, .gallery-tab-btn:hover {
+.gallery-tab-btn:hover {
+  color: #f0f6fc;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.gallery-tab-btn.active {
   background: var(--primary);
-  color: #fff;
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px var(--primary-glow);
 }
 
 .project-info {
@@ -608,6 +649,12 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
+  margin-top: auto;
+  margin-bottom: 0.25rem;
+}
+
+.doc-actions {
+  margin-top: 0.85rem;
 }
 
 /* =========================================

@@ -10,7 +10,7 @@
   "intro": {
     "avatarAlt": "王浩宇的头像",
     "title": "你好，我是 王浩宇 (Haoyu Wang)",
-    "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦机械臂运动学控制、具身智能 (LeRobot / ACT / VLA 模仿学习)、多智能体凸安全走廊规划与嵌入式软硬件研发",
+    "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦机械臂全栈运控 (Pinocchio / MoveIt 2)、具身智能 (LeRobot / ACT / Diffusion Policy)、多智能体凸安全走廊规划与嵌入式软硬件研发",
     "status": "2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K"
   },
   "projects": {
@@ -19,7 +19,7 @@
     "links": {
       "code": "源码仓库",
       "docs": "技术文档",
-      "demo": "演示视频",
+      "demo": "动态演示",
       "website": "项目主页",
       "paper": "毕业论文",
       "award": "获奖荣誉",
@@ -33,10 +33,10 @@
       "tags": ["Convex Safe Corridor", "Minimum Snap", "LO-MPC", "CasADi", "Multi-Robot", "Python", "Trajectory Optimization"]
     },
     "item1": {
-      "title": "基于 SO-ARM 与 LeRobot 的机械臂遥操作与具身模仿学习",
-      "role": "硬件研发 / 仿真探索 (2025.08 - 2026.01)",
-      "desc": "结合 3D 打印与开源 SO-ARM 机械臂架构，底层选用 STS3215 串行总线舵机搭建机械臂本体与主从遥操作 (Teleoperation) 控制端；在 MuJoCo 中构建高保真 URDF 动力学仿真场景，8月完成刚体动力学验证与抓取碰撞仿真；基于 Hugging Face LeRobot 部署主从轨迹录制链路，以 50Hz 采样率构建标准化多视角数据集；部署 ACT 与 Diffusion Policy 策略模型，打通从仿真策略训练到物理舵机总线通信的端到端闭环。",
-      "tags": ["SO-ARM", "Hugging Face LeRobot", "ACT Policy", "Diffusion Policy", "MuJoCo", "STS3215", "Teleoperation", "Embodied AI"]
+      "title": "Arm_Grabbing: SO-ARM101 机械臂混合控制与具身智能全栈系统",
+      "role": "全栈研发 · 仿真验证至实机部署 (2025.08 - 2026.03)",
+      "desc": "基于开源桌面 6 轴机械臂 SO-ARM101 / SO-100M，构建从传统 Model-Based 动力学与运动学控制底座到具身智能 Learning-Based 模仿学习策略的完整全栈抓取系统。<br><b>【Model-Based 规划控制】</b>基于 OnShape CAD 导出 13 个构件构建参数化 URDF/Xacro 与高精度物理惯量；采用 Pinocchio 求解正逆运动学，自主推导阻尼最小二乘法 (DLS IK) 求解器，引入 λ² 阻尼约束彻底消除奇异点速度爆炸，笛卡尔空间末端跟踪残差 < 0.1mm；设计空间五次多项式平滑插值与 3D 8字形 (Lemniscate) 空间轨迹，结合 Yoshikawa 操纵度指标量化避障；配置 MoveIt 2 运动规划管道，精细优化 SRDF 碰撞矩阵 (自碰撞计算耗时降低 85%)，通过 FollowJointTrajectory Action 实现 50Hz 闭环控制。<br><b>【Learning-Based 具身策略】</b>底层编写 STS3215 串行总线舵机驱动，搭建主从双臂 (Leader-Follower) 遥操作实时采集链路；基于 Hugging Face LeRobot 构建 50Hz 多视角高保真标准化数据集并开源；部署 ACT 与 Diffusion Policy 策略模型，完成 MuJoCo 物理仿真与实机抓取操作端到端实时推理闭环。",
+      "tags": ["ROS 2 Humble", "Pinocchio", "DLS IK (<0.1mm)", "MoveIt 2", "LeRobot", "Diffusion Policy", "ACT", "MuJoCo", "STS3215"]
     },
     "item2": {
       "title": "2025 RoboCup 救援机器人电控系统与机械臂协同控制",
@@ -53,22 +53,22 @@
   },
   "documents": {
     "title": "技术文档与知识沉淀",
-    "desc": "机械臂具身操作、运动规划算法推导与工程实战总结",
+    "desc": "机械臂具身操作、运动规划算法推导与工程实战总结（持续沉淀于 GitHub）",
     "item0": {
-      "title": "凸安全走廊 (Convex Safe Corridor) 凸多面体生成算法与拓扑路径剪枝解析",
-      "desc": "详解如何从二维/三维栅格障碍环境中利用射线膨胀与半平面交构建连续凸多边形/多面体硬约束集，供下层 QP 优化器毫秒级求解。"
+      "title": "机械臂运动学算法、MoveIt 2 与轨迹规划精通指南 (进阶讲义)",
+      "desc": "基于 Pinocchio 深度推导齐次矩阵连乘、阻尼最小二乘法 (DLS IK) 奇异点正则化求解、Yoshikawa 操纵度指标、五次样条平滑插值以及 MoveIt 2 运动规划管道底层实现与自测解答。"
     },
     "item1": {
-      "title": "SO-ARM 机械臂主从遥操作搭建与 Hugging Face LeRobot ACT 模仿学习实战",
-      "desc": "详解从 STS3215 总线舵机零位标定、主从角度镜像同步、多视角 RGB-D 数据集录制，到 ACT Transformer 模型训练与推理部署的全流程踩坑经验。"
+      "title": "机械臂全栈开发：保姆级实战教程与面试官必问硬核指南",
+      "desc": "遵循“先纯仿真验证算法 ➔ 后实物部署与 Sim2Real”的工业级标准流程，逐行拆解 DLS 梯度迭代求解、奇异点速度爆炸根源及 MoveIt 2 架构高频面试核心考点。"
     },
     "item2": {
-      "title": "多自由度串联机械臂解析正逆运动学求解与五次多项式平滑插补推导",
-      "desc": "推导标准 DH 建模、末端位姿解算、关节角奇异性规避以及五次样条多项式在消除机械臂启停加速度突变中的工程落地经验。"
+      "title": "SO-ARM101 真实 CAD URDF 建模与 ROS 2 TF2 坐标树精通指南",
+      "desc": "拆解从 OnShape 导出 13 个 3D 打印构件到 Xacro 参数化宏、物理惯量矩阵标定、RViz 2 50Hz 实时变换及 TF 树广播机制的全套工程经验。"
     },
     "item3": {
-      "title": "词典序优化模型预测控制 (LO-MPC) 在多智能体编队中的建模与 CasADi 求解",
-      "desc": "推导队形保持刚度、动态避障硬约束与输入平滑的多目标分层优先级模型，分析基于内点法与 QP 求解器在 50ms 周期内的实时鲁棒性。"
+      "title": "凸安全走廊 (Convex Safe Corridor) 凸多面体生成算法与拓扑路径剪枝解析",
+      "desc": "详解如何从二维/三维栅格障碍环境中利用射线膨胀与半平面交构建连续凸多边形/多面体硬约束集，供下层 QP 优化器毫秒级求解。"
     }
   },
   "timeline": {
@@ -85,9 +85,9 @@
       "desc": "独立搭建基于 Python 与 CasADi 的运动规划仿真系统，完成 A* 剪枝、走廊生成、Minimum Snap 与词典序 MPC 编队控制。"
     },
     "event2": {
-      "date": "2025.08 - 2026.01",
-      "title": "SO-ARM 机械臂硬件与 LeRobot 具身模仿学习研发",
-      "desc": "完成 SO-ARM 总线舵机硬件搭建、MuJoCo 仿真建模、主从遥操作数据流打通与 ACT/Diffusion 抓取策略部署。"
+      "date": "2025.08 - 2026.03",
+      "title": "Arm_Grabbing 机械臂混合控制与具身模仿学习全栈研发",
+      "desc": "完成 SO-ARM101 CAD 建模、Pinocchio DLS 逆运动学算法、MoveIt 2 规划配置、主从遥操作与 LeRobot Diffusion Policy 策略训练部署。"
     },
     "event3": {
       "date": "2025.05",
@@ -118,9 +118,9 @@
   "skills": {
     "title": "专业技能矩阵",
     "desc": "系统化的机器人规划控制、机械臂具身操作与嵌入式底层开发栈",
+    "manipulator": "机械臂与具身智能",
     "planning": "路径规划与轨迹优化",
     "control": "运动控制与运筹优化",
-    "manipulator": "机械臂与具身智能",
     "embedded": "嵌入式软硬件底层",
     "languages": "编程语言与工具链"
   },

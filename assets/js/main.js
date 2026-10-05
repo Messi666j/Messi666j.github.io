@@ -7,11 +7,11 @@
   const PROJECTS = [
     {
       id: 'corridor-lo-mpc',
-      img: 'assets/images/corridor_final.png',
+      img: 'assets/images/corridor_evolution.gif',
       hasGallery: true,
       gallery: [
+        { labelZh: '动态演化 (GIF)', labelEn: 'Evolution (GIF)', src: 'assets/images/corridor_evolution.gif' },
         { labelZh: '最终轨迹', labelEn: 'Final Trajectory', src: 'assets/images/corridor_final.png' },
-        { labelZh: '阶段演化', labelEn: 'Stages Evolution', src: 'assets/images/corridor_stages.png' },
         { labelZh: '安全走廊', labelEn: 'Safe Corridor', src: 'assets/images/corridor_only.png' },
         { labelZh: '编队误差', labelEn: 'Formation Error', src: 'assets/images/corridor_error.png' },
       ],
@@ -25,16 +25,25 @@
       ]
     },
     {
-      id: 'soarm-lerobot',
-      img: 'assets/images/soarm_lerobot_diag.svg',
-      hasGallery: false,
+      id: 'arm-grabbing',
+      img: 'assets/images/arm_grabbing_arch.svg',
+      hasGallery: true,
+      gallery: [
+        { labelZh: '全栈架构图', labelEn: 'Dual Architecture', src: 'assets/images/arm_grabbing_arch.svg' },
+        { labelZh: '具身闭环演示 (GIF)', labelEn: 'Embodied Policy (GIF)', src: 'assets/images/soarm_pusht_demo1.gif' },
+        { labelZh: 'DLS IK & 3D轨迹曲线', labelEn: 'Kinematics & 3D Traj', src: 'assets/images/arm_grabbing_kinematics.png' },
+        { labelZh: 'MoveIt 2 规划管道', labelEn: 'MoveIt 2 Pipeline', src: 'assets/images/arm_grabbing_moveit.svg' },
+        { labelZh: '遥操作采集界面', labelEn: 'Teleoperation GUI', src: 'assets/images/soarm_teleop_gui.png' },
+      ],
       titleKey: 'projects.item1.title',
       roleKey: 'projects.item1.role',
       descKey: 'projects.item1.desc',
-      tags: ['SO-ARM', 'Hugging Face LeRobot', 'ACT Policy', 'Diffusion Policy', 'MuJoCo', 'STS3215', 'Teleoperation', 'Embodied AI'],
+      tags: ['ROS 2 Humble', 'Pinocchio', 'DLS IK (<0.1mm)', 'MoveIt 2', 'LeRobot', 'Diffusion Policy', 'ACT', 'MuJoCo', 'STS3215'],
       links: [
-        { href: 'https://github.com/huggingface/lerobot', labelKey: 'projects.links.reference', icon: 'fab fa-github' },
-        { href: '#documents', labelKey: 'projects.links.docs', icon: 'fas fa-brain' }
+        { href: 'https://github.com/Messi666j/Arm_Grabbing', labelKey: 'projects.links.code', icon: 'fab fa-github' },
+        { href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/phase2_mastery_guide.md', labelKey: 'projects.links.docs', icon: 'fas fa-book-open' },
+        { href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/nanny_tutorial_and_interview_guide.md', labelKey: 'projects.links.reference', icon: 'fas fa-graduation-cap' },
+        { href: 'https://huggingface.co/datasets/qian1dqs/so100-pusht', labelKey: 'projects.links.website', icon: 'fas fa-brain' }
       ]
     },
     {
@@ -69,26 +78,50 @@
     {
       titleKey: 'documents.item0.title',
       descKey: 'documents.item0.desc',
-      tags: ['Safe Corridor', 'QP Solver', 'Convex Optimization'],
-      icon: 'fas fa-draw-polygon'
+      tags: ['Pinocchio', 'DLS IK', 'MoveIt 2', 'Quintic Spline'],
+      icon: 'fas fa-robot',
+      link: {
+        href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/phase2_mastery_guide.md',
+        labelZh: '在线研读讲义',
+        labelEn: 'Read Master Guide',
+        icon: 'fas fa-arrow-up-right-from-square'
+      }
     },
     {
       titleKey: 'documents.item1.title',
       descKey: 'documents.item1.desc',
-      tags: ['SO-ARM', 'LeRobot', 'ACT Policy', 'Teleoperation'],
-      icon: 'fas fa-brain'
+      tags: ['Interview Guide', 'Sim-to-Real', 'DLS Analysis'],
+      icon: 'fas fa-graduation-cap',
+      link: {
+        href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/nanny_tutorial_and_interview_guide.md',
+        labelZh: '面试题库与代码拆解',
+        labelEn: 'Interview Q&A Guide',
+        icon: 'fas fa-arrow-up-right-from-square'
+      }
     },
     {
       titleKey: 'documents.item2.title',
       descKey: 'documents.item2.desc',
-      tags: ['Analytical IK', 'Quintic Polynomial', 'Robotic Arm'],
-      icon: 'fas fa-robot'
+      tags: ['OnShape CAD', 'URDF / Xacro', 'TF2 Tree', 'RViz 2'],
+      icon: 'fas fa-cubes',
+      link: {
+        href: 'https://github.com/Messi666j/Arm_Grabbing/blob/main/docs/phase1_mastery_guide.md',
+        labelZh: 'URDF与TF2讲义',
+        labelEn: 'URDF & TF2 Guide',
+        icon: 'fas fa-arrow-up-right-from-square'
+      }
     },
     {
       titleKey: 'documents.item3.title',
       descKey: 'documents.item3.desc',
-      tags: ['LO-MPC', 'CasADi', 'Multi-Agent Formation'],
-      icon: 'fas fa-project-diagram'
+      tags: ['Convex Safe Corridor', 'Minimum Snap', 'LO-MPC', 'CasADi'],
+      icon: 'fas fa-draw-polygon',
+      link: {
+        href: 'https://github.com/Messi666j/Corridor-LO-MPC',
+        labelZh: '走廊规划开源仓库',
+        labelEn: 'Safe Corridor Repo',
+        icon: 'fas fa-arrow-up-right-from-square'
+      }
     }
   ];
 
@@ -108,55 +141,57 @@
       categoryKey: 'skills.manipulator',
       icon: 'fas fa-robot',
       items: [
-        '多自由度机械臂正逆运动学 (DH / 几何法)',
-        '空间五次多项式平滑插补轨迹规划',
-        'Hugging Face LeRobot 具身学习框架',
-        'ACT / Diffusion Policy 模仿学习模型',
-        '主从遥操作 (Teleoperation) 数据集录制'
+        'Pinocchio 运动学核心 (正逆运动学 / 雅可比矩阵符号更新)',
+        '自研 DLS 阻尼最小二乘法逆解器 (奇异点消除, 残差 < 0.1mm)',
+        'MoveIt 2 运动规划管道、SRDF 碰撞矩阵优化与 FollowJointTrajectory 闭环',
+        '空间五次多项式平滑插补 (零冲击边界) 与 3D 8字形双扭线轨迹',
+        'Hugging Face LeRobot 具身学习框架 (50Hz 多视角高保真数据集)',
+        'ACT (Action Chunking) 与 Diffusion Policy 模仿学习策略',
+        '主从双臂 (Leader-Follower) 遥操作与 STS3215 串行总线舵机驱动'
       ]
     },
     {
       categoryKey: 'skills.planning',
       icon: 'fas fa-route',
       items: [
-        'A* / Hybrid A* 路径搜索与拓扑剪枝',
-        '凸安全走廊 (Convex Safe Corridor)',
-        'Minimum Snap 高阶连续轨迹优化',
-        'B-spline 样条曲线轨迹优化',
-        '多项式时间分配与非凸避障约束'
+        'A* / Hybrid A* 路径搜索与拓扑几何剪枝',
+        '凸安全走廊 (Convex Safe Corridor) 凸多面体硬约束集',
+        'Minimum Snap 连续轨迹优化与非凸走廊映射',
+        'B-spline 样条曲线轨迹优化与时间分配',
+        '多智能体编队避障硬约束与密集窄道通行'
       ]
     },
     {
       categoryKey: 'skills.control',
       icon: 'fas fa-compass',
       items: [
-        '词典序模型预测控制 (LO-MPC)',
-        'CasADi / CVXPY QP/NLP 优化建模',
-        'MPPI (模型预测路径积分) 采样控制',
-        '数字 PID 闭环控制 (位置-速度-电流)',
-        'MuJoCo / Gazebo 高保真物理仿真'
+        '词典序模型预测控制 (LO-MPC) 多目标分层优化',
+        'CasADi / CVXPY / OSQP 优化建模与 50ms 快速求解',
+        'MPPI (模型预测路径积分) 随机采样高动态避障',
+        '数字 PID 闭环控制 (位置-速度-电流三环调谐与前馈)',
+        'MuJoCo / Gazebo 高保真刚体动力学物理仿真'
       ]
     },
     {
       categoryKey: 'skills.embedded',
       icon: 'fas fa-microchip',
       items: [
-        'STM32 (Cortex-M4) 底层固件开发',
-        'FreeRTOS 实时多任务系统调度',
-        'CAN 总线协议 (CAN 2.0B / CANopen)',
-        'STS3215 串行总线舵机驱动与协议',
-        'DJI M2006 无刷电机与伺服驱动'
+        'STM32 (Cortex-M4) 底层固件与外设硬件驱动开发',
+        'FreeRTOS 实时多任务操作系统调度与队列同步',
+        'CAN 总线协议 (CAN 2.0B / CANopen) 拓扑通信与过滤',
+        'STS3215 串行总线舵机 1Mbps 半双工差分通信协议',
+        '大疆 M2006 / M3508 无刷电机与伺服驱动器闭环调优'
       ]
     },
     {
       categoryKey: 'skills.languages',
       icon: 'fas fa-code',
       items: [
-        'C/C++ (C++11/14, STL, 面向对象)',
-        'Python (PyTorch, NumPy, CasADi)',
-        'Linux / Ubuntu 生产开发环境',
-        'CMake 构建体系 / Git 版本控制',
-        'GDB / 逻辑分析仪 / 示波器联合调试'
+        'C/C++ (C++11/14/17, STL, 面向对象, 模板与指针管理)',
+        'Python (PyTorch, Pinocchio, NumPy, CasADi, Matplotlib)',
+        'ROS 2 (Humble) / Nav2 / TF2 动态坐标变换系统',
+        'URDF / Xacro 参数化描述与真实 CAD 物理惯量标定',
+        'Linux / Ubuntu 环境, CMake 构建系统与 Git 版本协同'
       ]
     }
   ];
@@ -171,7 +206,9 @@
       const isReverse = idx % 2 === 1 ? 'reverse' : '';
       const mediaHtml = proj.img
         ? `<div class="project-media">
-             <img id="img-${proj.id}" src="${proj.img}" alt="${t(proj.titleKey)}" loading="lazy">
+             <div class="project-media-wrapper">
+               <img id="img-${proj.id}" src="${proj.img}" alt="${t(proj.titleKey)}" loading="lazy">
+             </div>
              ${proj.hasGallery ? `
                <div class="gallery-tabs">
                  ${proj.gallery.map((g, gIdx) => `
@@ -191,7 +228,7 @@
 
       const tagsHtml = proj.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
       const linksHtml = proj.links.map(link => `
-        <a href="${link.href}" ${link.href.startsWith('http') ? 'target="_blank"' : ''} class="btn btn-sm btn-secondary">
+        <a href="${link.href}" ${link.href.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''} class="btn btn-sm btn-secondary">
           <i class="${link.icon}"></i> ${t(link.labelKey)}
         </a>
       `).join('');
@@ -212,7 +249,7 @@
       `;
     }).join('');
 
-    // Attach Gallery Switching Listeners
+    // Attach Gallery Switching Listeners with smooth animation
     document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const parent = btn.closest('.gallery-tabs');
@@ -223,9 +260,11 @@
         const img = document.getElementById(targetImgId);
         if (img) {
           img.style.opacity = '0.3';
+          img.style.transform = 'scale(0.98)';
           setTimeout(() => {
             img.src = newSrc;
             img.style.opacity = '1';
+            img.style.transform = 'scale(1)';
           }, 150);
         }
       });
@@ -236,19 +275,32 @@
     const container = document.querySelector('.documents-grid');
     if (!container) return;
     const t = window.i18n ? window.i18n.get : (k) => k;
+    const currentLang = window.i18n ? window.i18n.currentLang() : 'zh';
 
-    container.innerHTML = DOCUMENTS.map((doc) => `
-      <div class="doc-card">
-        <div class="doc-icon"><i class="${doc.icon}"></i></div>
-        <div class="doc-content">
-          <h4 class="doc-title">${t(doc.titleKey)}</h4>
-          <p class="doc-desc">${t(doc.descKey)}</p>
-          <div class="doc-tags">
-            ${doc.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+    container.innerHTML = DOCUMENTS.map((doc) => {
+      const linkLabel = doc.link ? (currentLang === 'en' ? doc.link.labelEn : doc.link.labelZh) : '';
+      const linkHtml = doc.link ? `
+        <div class="doc-actions" style="margin-top: 1rem;">
+          <a href="${doc.link.href}" target="_blank" rel="noopener noreferrer" class="btn btn-xs btn-primary">
+            <i class="${doc.link.icon}"></i> ${linkLabel}
+          </a>
+        </div>
+      ` : '';
+
+      return `
+        <div class="doc-card">
+          <div class="doc-icon"><i class="${doc.icon}"></i></div>
+          <div class="doc-content">
+            <h4 class="doc-title">${t(doc.titleKey)}</h4>
+            <p class="doc-desc">${t(doc.descKey)}</p>
+            <div class="doc-tags">
+              ${doc.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+            </div>
+            ${linkHtml}
           </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   function renderTimeline() {
@@ -293,13 +345,14 @@
     renderSkills();
   }
 
-  // Theme Toggle Functionality
+  // Theme Toggle Functionality with smooth visual icon rotation
   function initTheme() {
     const themeBtn = document.querySelector('.theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
 
     document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
 
     if (themeBtn) {
       themeBtn.addEventListener('click', () => {
@@ -307,7 +360,15 @@
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+        updateThemeIcon(next);
       });
+    }
+  }
+
+  function updateThemeIcon(theme) {
+    const icon = document.querySelector('.theme-toggle i');
+    if (icon) {
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
   }
 

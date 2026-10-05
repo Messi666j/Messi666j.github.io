@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+    <linearGradient id="blueCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2942" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#133659" stop-opacity="0.6" />
+    </linearGradient>
+    <linearGradient id="greenCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e372b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#144d3d" stop-opacity="0.6" />
+    </linearGradient>
+    <linearGradient id="purpleCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d174d" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3d2066" stop-opacity="0.6" />
+    </linearGradient>
+    
+    <!-- Filter Glow -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#34d399" />
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #f0f6fc; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; fill: #8b949e; font-size: 13px; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; font-size: 15px; fill: #e6edf3; }
+    .node-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; font-size: 13px; fill: #ffffff; }
+    .node-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #8b949e; }
+    .badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; font-weight: 600; text-anchor: middle; }
+    .connector { stroke-dasharray: 4, 4; animation: dash 20s linear infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="960" height="540" fill="url(#bgGrad)" rx="12" stroke="#30363d" stroke-width="1.5" />
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.15">
+    <path d="M 40 0 V 540 M 80 0 V 540 M 120 0 V 540 M 160 0 V 540 M 200 0 V 540 M 240 0 V 540 M 280 0 V 540 M 320 0 V 540 M 360 0 V 540 M 400 0 V 540 M 440 0 V 540 M 480 0 V 540 M 520 0 V 540 M 560 0 V 540 M 600 0 V 540 M 640 0 V 540 M 680 0 V 540 M 720 0 V 540 M 760 0 V 540 M 800 0 V 540 M 840 0 V 540 M 880 0 V 540 M 920 0 V 540" stroke="#8b949e" stroke-width="0.5" />
+    <path d="M 0 40 H 960 M 0 80 H 960 M 0 120 H 960 M 0 160 H 960 M 0 200 H 960 M 0 240 H 960 M 0 280 H 960 M 0 320 H 960 M 0 360 H 960 M 0 400 H 960 M 0 440 H 960 M 0 480 H 960 M 0 520 H 960" stroke="#8b949e" stroke-width="0.5" />
+  </g>
+
+  <!-- Top Title Banner -->
+  <g transform="translate(40, 36)">
+    <text class="title" font-size="20">Arm_Grabbing: SO-ARM101 机械臂混合控制与具身智能全栈系统</text>
+    <text class="subtitle" y="24">Model-Based 动力学与运动学控制底座 ➔ Learning-Based 具身模仿学习策略全链路架构</text>
+  </g>
+
+  <!-- Status Pill -->
+  <g transform="translate(760, 32)">
+    <rect width="160" height="26" rx="13" fill="#1f242c" stroke="#38bdf8" stroke-width="1" />
+    <circle cx="16" cy="13" r="4" fill="#34d399" />
+    <text class="badge" x="88" y="17" fill="#38bdf8">ROS 2 &amp; LeRobot 双驱</text>
+  </g>
+
+  <!-- ================= SECTION 1: Base / Model ================= -->
+  <g transform="translate(40, 85)">
+    <!-- Section Box -->
+    <rect width="270" height="425" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.2" />
+    <rect width="270" height="38" rx="10" fill="#21262d" />
+    <circle cx="20" cy="19" r="6" fill="#38bdf8" />
+    <text class="card-title" x="35" y="24">1. 建模底座与高保真环境</text>
+    
+    <!-- Item 1: CAD & URDF -->
+    <g transform="translate(15, 52)">
+      <rect width="240" height="74" rx="8" fill="url(#blueCard)" stroke="#38bdf8" stroke-width="1" />
+      <text class="node-title" x="14" y="24">真实 CAD 高精度建模</text>
+      <text class="node-desc" x="14" y="44">OnShape 导出 13 个 3D 打印 Mesh</text>
+      <text class="node-desc" x="14" y="60">URDF / Xacro 参数化与物理惯量</text>
+    </g>
+
+    <!-- Item 2: RViz2 & MuJoCo -->
+    <g transform="translate(15, 140)">
+      <rect width="240" height="74" rx="8" fill="url(#blueCard)" stroke="#38bdf8" stroke-width="1" />
+      <text class="node-title" x="14" y="24">多平台物理仿真闭环</text>
+      <text class="node-desc" x="14" y="44">RViz 2 TF2 坐标树 50Hz 实时变换</text>
+      <text class="node-desc" x="14" y="60">MuJoCo 刚体碰撞与重力动力学</text>
+    </g>
+
+    <!-- Item 3: Hardware Interface -->
+    <g transform="translate(15, 228)">
+      <rect width="240" height="74" rx="8" fill="url(#blueCard)" stroke="#38bdf8" stroke-width="1" />
+      <text class="node-title" x="14" y="24">STS3215 串行总线硬件驱动</text>
+      <text class="node-desc" x="14" y="44">1Mbps 差分半双工串口底层协议</text>
+      <text class="node-desc" x="14" y="60">角度/速度/负载闭环反馈控制</text>
+    </g>
+
+    <!-- Item 4: Calibration -->
+    <g transform="translate(15, 316)">
+      <rect width="240" height="90" rx="8" fill="url(#blueCard)" stroke="#38bdf8" stroke-width="1" />
+      <text class="node-title" x="14" y="24">手眼标定与坐标对齐</text>
+      <text class="node-desc" x="14" y="44">Eye-in-Hand / Eye-to-Hand 标定</text>
+      <text class="node-desc" x="14" y="60">消除 Sim-to-Real 机械安装零位残差</text>
+      <text class="node-desc" x="14" y="76">微米级末端对准与空间刚体配准</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 310 215 L 342 215" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 310 390 L 342 390" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- ================= SECTION 2: Model-Based ================= -->
+  <g transform="translate(345, 85)">
+    <!-- Section Box -->
+    <rect width="270" height="425" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.2" />
+    <rect width="270" height="38" rx="10" fill="#21262d" />
+    <circle cx="20" cy="19" r="6" fill="#34d399" />
+    <text class="card-title" x="35" y="24">2. Model-Based 运动规划控制</text>
+
+    <!-- Item 1: Pinocchio FK/IK -->
+    <g transform="translate(15, 52)">
+      <rect width="240" height="74" rx="8" fill="url(#greenCard)" stroke="#34d399" stroke-width="1" />
+      <text class="node-title" x="14" y="24">Pinocchio 运动学核心</text>
+      <text class="node-desc" x="14" y="44">齐次变换矩阵 SE(3) 递归连乘</text>
+      <text class="node-desc" x="14" y="60">几何雅可比矩阵 J(q) 极速符号更新</text>
+    </g>
+
+    <!-- Item 2: DLS Inverse Kinematics -->
+    <g transform="translate(15, 140)">
+      <rect width="240" height="74" rx="8" fill="url(#greenCard)" stroke="#34d399" stroke-width="1" />
+      <text class="node-title" x="14" y="24">自研 DLS 阻尼最小二乘求解</text>
+      <text class="node-desc" x="14" y="44">λ² 阻尼约束：彻底消除奇异点爆炸</text>
+      <text class="node-desc" x="14" y="60">微米级残差 (&lt; 0.1mm) 快速迭代收敛</text>
+    </g>
+
+    <!-- Item 3: Trajectory & Manipulability -->
+    <g transform="translate(15, 228)">
+      <rect width="240" height="74" rx="8" fill="url(#greenCard)" stroke="#34d399" stroke-width="1" />
+      <text class="node-title" x="14" y="24">3D 8字形与五次多项式规划</text>
+      <text class="node-desc" x="14" y="44">Bernoulli 双扭线空间平滑插值</text>
+      <text class="node-desc" x="14" y="60">Yoshikawa 操纵度 w(q) 奇异姿态避障</text>
+    </g>
+
+    <!-- Item 4: MoveIt 2 Pipeline -->
+    <g transform="translate(15, 316)">
+      <rect width="240" height="90" rx="8" fill="url(#greenCard)" stroke="#34d399" stroke-width="1" />
+      <text class="node-title" x="14" y="24">MoveIt 2 工业级运动规划管道</text>
+      <text class="node-desc" x="14" y="44">SRDF 优化自碰撞矩阵 (Disabled pairs)</text>
+      <text class="node-desc" x="14" y="60">OMPL RRTConnect / PRM 避障规划</text>
+      <text class="node-desc" x="14" y="76">FollowJointTrajectory 控制器闭环执行</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 615 215 L 647 215" stroke="#34d399" stroke-width="2" marker-end="url(#arrowGreen)" />
+  <path d="M 615 390 L 647 390" stroke="#34d399" stroke-width="2" marker-end="url(#arrowGreen)" />
+
+  <!-- ================= SECTION 3: Learning-Based ================= -->
+  <g transform="translate(650, 85)">
+    <!-- Section Box -->
+    <rect width="270" height="425" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.2" />
+    <rect width="270" height="38" rx="10" fill="#21262d" />
+    <circle cx="20" cy="19" r="6" fill="#c084fc" />
+    <text class="card-title" x="35" y="24">3. Learning-Based 具身模仿学习</text>
+
+    <!-- Item 1: Teleop -->
+    <g transform="translate(15, 52)">
+      <rect width="240" height="74" rx="8" fill="url(#purpleCard)" stroke="#c084fc" stroke-width="1" />
+      <text class="node-title" x="14" y="24">主从遥操作 (Teleoperation)</text>
+      <text class="node-desc" x="14" y="44">Leader-Follower 实时位姿镜像映射</text>
+      <text class="node-desc" x="14" y="60">手柄/外骨骼低延迟交互采集</text>
+    </g>
+
+    <!-- Item 2: LeRobot Dataset -->
+    <g transform="translate(15, 140)">
+      <rect width="240" height="74" rx="8" fill="url(#purpleCard)" stroke="#c084fc" stroke-width="1" />
+      <text class="node-title" x="14" y="24">Hugging Face LeRobot 数据集</text>
+      <text class="node-desc" x="14" y="44">50Hz 采样率、多视角相机同步录制</text>
+      <text class="node-desc" x="14" y="60">Parquet / Zarr 格式标准化封装清洗</text>
+    </g>
+
+    <!-- Item 3: ACT / Diffusion Policy -->
+    <g transform="translate(15, 228)">
+      <rect width="240" height="74" rx="8" fill="url(#purpleCard)" stroke="#c084fc" stroke-width="1" />
+      <text class="node-title" x="14" y="24">ACT &amp; Diffusion Policy 策略模型</text>
+      <text class="node-desc" x="14" y="44">Action Chunking 动作分块预测</text>
+      <text class="node-desc" x="14" y="60">条件扩散降噪与多模态动作分布建模</text>
+    </g>
+
+    <!-- Item 4: Real-time Closed-Loop Demo -->
+    <g transform="translate(15, 316)">
+      <rect width="240" height="90" rx="8" fill="url(#purpleCard)" stroke="#c084fc" stroke-width="1" />
+      <text class="node-title" x="14" y="24">实时端到端推理闭环 Demo</text>
+      <text class="node-desc" x="14" y="44">视觉反馈输入 ➔ 神经网络即时前推</text>
+      <text class="node-desc" x="14" y="60">ROS 2 / 总线执行器实时平滑执行</text>
+      <text class="node-desc" x="14" y="76">自主高成功率抓取 / 整理操作任务</text>
+    </g>
+  </g>
+</svg>
