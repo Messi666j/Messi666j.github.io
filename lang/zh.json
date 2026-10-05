@@ -10,8 +10,17 @@
   "intro": {
     "avatarAlt": "王浩宇的头像",
     "title": "你好，我是 王浩宇 (Haoyu Wang)",
+    "kicker": "机器人运动规划与控制 / 机械臂具身操作工程师",
     "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦机械臂全栈运控 (Pinocchio / MoveIt 2)、具身智能 (LeRobot / ACT / Diffusion Policy)、多智能体凸安全走廊规划与嵌入式软硬件研发",
-    "status": "2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K"
+    "status": "2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K",
+    "spec0Label": "DLS 逆解残差",
+    "spec0Value": "< 0.1 mm",
+    "spec1Label": "MoveIt 2 闭环",
+    "spec1Value": "50 Hz Action",
+    "spec2Label": "具身学习策略",
+    "spec2Value": "LeRobot / ACT",
+    "spec3Label": "全国竞技荣誉",
+    "spec3Value": "RoboCup 3rd"
   },
   "projects": {
     "title": "核心研发与工程项目",

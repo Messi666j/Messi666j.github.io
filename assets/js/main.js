@@ -7,6 +7,7 @@
   const PROJECTS = [
     {
       id: 'corridor-lo-mpc',
+      subsystemCode: 'SYS_01 // CORRIDOR_LO_MPC',
       img: 'assets/images/corridor_evolution.gif',
       hasGallery: true,
       gallery: [
@@ -14,6 +15,11 @@
         { labelZh: '最终轨迹', labelEn: 'Final Trajectory', src: 'assets/images/corridor_final.png' },
         { labelZh: '安全走廊', labelEn: 'Safe Corridor', src: 'assets/images/corridor_only.png' },
         { labelZh: '编队误差', labelEn: 'Formation Error', src: 'assets/images/corridor_error.png' },
+      ],
+      specs: [
+        { labelZh: '编队跟踪误差', labelEn: 'Tracking Error', val: '< 0.05 m' },
+        { labelZh: '控制求解周期', labelEn: 'Solve Period', val: '50 ms' },
+        { labelZh: '走廊约束生成', labelEn: 'Constraint Gen', val: '凸走廊凸包' },
       ],
       titleKey: 'projects.item0.title',
       roleKey: 'projects.item0.role',
@@ -27,6 +33,7 @@
     },
     {
       id: 'arm-grabbing',
+      subsystemCode: 'SYS_02 // ARM_GRABBING_EMBODIED',
       img: 'assets/images/arm_grabbing_arch.svg',
       hasGallery: true,
       gallery: [
@@ -35,6 +42,11 @@
         { labelZh: 'DLS IK & 3D轨迹曲线', labelEn: 'Kinematics & 3D Traj', src: 'assets/images/arm_grabbing_kinematics.png' },
         { labelZh: 'MoveIt 2 规划管道', labelEn: 'MoveIt 2 Pipeline', src: 'assets/images/arm_grabbing_moveit.svg' },
         { labelZh: '遥操作采集界面', labelEn: 'Teleoperation GUI', src: 'assets/images/soarm_teleop_gui.png' },
+      ],
+      specs: [
+        { labelZh: 'DLS 逆解残差', labelEn: 'DLS Residual', val: '< 0.1 mm' },
+        { labelZh: '自碰撞计算优化', labelEn: 'Collision Query', val: '-85% 耗时' },
+        { labelZh: '具身数据集采样', labelEn: 'Dataset Sampling', val: '50 Hz 多视角' },
       ],
       titleKey: 'projects.item1.title',
       roleKey: 'projects.item1.role',
@@ -49,8 +61,14 @@
     },
     {
       id: 'robocup-rescue-arm',
+      subsystemCode: 'SYS_03 // ROBOCUP_RESCUE_ARM',
       img: 'assets/images/robocup_arm_diag.svg',
       hasGallery: false,
+      specs: [
+        { labelZh: '国家级竞赛荣誉', labelEn: 'National Prize', val: '全国三等奖' },
+        { labelZh: '总线通信拓扑', labelEn: 'CAN Topology', val: 'CAN 2.0B 1M' },
+        { labelZh: '电机闭环控制', labelEn: 'Motor Control', val: 'M2006 双环PID' },
+      ],
       titleKey: 'projects.item2.title',
       roleKey: 'projects.item2.role',
       descKey: 'projects.item2.desc',
@@ -62,8 +80,14 @@
     },
     {
       id: 'trailblazer-ros2-nav',
+      subsystemCode: 'SYS_04 // ROS2_AUTONOMOUS_NAV',
       img: 'assets/images/trailblazer_arch_diag.svg',
       hasGallery: false,
+      specs: [
+        { labelZh: '激光雷达里程计', labelEn: 'LiDAR Odometry', val: 'FAST-LIO2 6-DOF' },
+        { labelZh: '局部避障采样', labelEn: 'Local Avoidance', val: 'MPPI 随机采样' },
+        { labelZh: '三维建图系统', labelEn: 'Mapping Field', val: 'ESDF 实时增量' },
+      ],
       titleKey: 'projects.item3.title',
       roleKey: 'projects.item3.role',
       descKey: 'projects.item3.desc',
@@ -77,6 +101,7 @@
 
   const DOCUMENTS = [
     {
+      rfc: 'RFC-01 // ADVANCED_KINEMATICS',
       titleKey: 'documents.item0.title',
       descKey: 'documents.item0.desc',
       tags: ['Pinocchio', 'DLS IK', 'MoveIt 2', 'Quintic Spline'],
@@ -89,6 +114,7 @@
       }
     },
     {
+      rfc: 'RFC-02 // EMBODIED_INTERVIEW',
       titleKey: 'documents.item1.title',
       descKey: 'documents.item1.desc',
       tags: ['Interview Guide', 'Sim-to-Real', 'DLS Analysis'],
@@ -101,6 +127,7 @@
       }
     },
     {
+      rfc: 'RFC-03 // CAD_URDF_TF2',
       titleKey: 'documents.item2.title',
       descKey: 'documents.item2.desc',
       tags: ['OnShape CAD', 'URDF / Xacro', 'TF2 Tree', 'RViz 2'],
@@ -113,6 +140,7 @@
       }
     },
     {
+      rfc: 'RFC-04 // CONVEX_CORRIDOR',
       titleKey: 'documents.item3.title',
       descKey: 'documents.item3.desc',
       tags: ['Convex Safe Corridor', 'Minimum Snap', 'LO-MPC', 'CasADi'],
@@ -227,7 +255,7 @@
            </div>`
         : `<div class="project-media">
              <div class="arch-diagram-box">
-               <i class="${proj.iconPlaceholder}" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+               <i class="fas fa-robot" style="font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
                <h4 style="font-size: 1.15rem; color: var(--text-main); margin-bottom: 0.5rem;">${t(proj.titleKey)}</h4>
              </div>
            </div>`;
@@ -248,17 +276,37 @@
         `;
       }).join('');
 
+      const specsHtml = proj.specs ? `
+        <div class="project-specs-grid">
+          ${proj.specs.map(s => `
+            <div class="spec-item">
+              <span class="spec-label">${currentLang === 'en' ? s.labelEn : s.labelZh}</span>
+              <span class="spec-val">${s.val}</span>
+            </div>
+          `).join('')}
+        </div>
+      ` : '';
+
       return `
-        <article class="project-card ${isReverse}">
-          ${mediaHtml}
-          <div class="project-info">
-            <div class="project-meta">
+        <article class="project-card">
+          <div class="project-card-header">
+            <div class="card-header-left">
+              <span class="status-indicator"></span>
+              <span class="header-code">${proj.subsystemCode}</span>
+            </div>
+            <div class="card-header-right">
               <span class="project-role-badge">${t(proj.roleKey)}</span>
             </div>
-            <h3 class="project-title">${t(proj.titleKey)}</h3>
-            <div class="project-tags">${tagsHtml}</div>
-            <p class="project-desc">${t(proj.descKey)}</p>
-            <div class="project-links">${linksHtml}</div>
+          </div>
+          <div class="project-card-body ${isReverse}">
+            ${mediaHtml}
+            <div class="project-info">
+              <h3 class="project-title">${t(proj.titleKey)}</h3>
+              <div class="project-tags">${tagsHtml}</div>
+              <p class="project-desc">${t(proj.descKey)}</p>
+              ${specsHtml}
+              <div class="project-links">${linksHtml}</div>
+            </div>
           </div>
         </article>
       `;
@@ -385,8 +433,11 @@
 
       return `
         <div class="doc-card">
-          <div class="doc-icon"><i class="${doc.icon}"></i></div>
-          <div class="doc-content">
+          <div class="doc-header-strip">
+            <span class="doc-rfc">${doc.rfc}</span>
+            <span class="doc-tech-badge"><i class="${doc.icon}"></i> SPEC</span>
+          </div>
+          <div class="doc-body">
             <h4 class="doc-title">${t(doc.titleKey)}</h4>
             <p class="doc-desc">${t(doc.descKey)}</p>
             <div class="doc-tags">

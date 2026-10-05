@@ -12,7 +12,7 @@
     document.documentElement.setAttribute('data-theme', savedTheme);
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -44,30 +44,84 @@
 
   <!-- Hero / Intro Section -->
   <section id="intro" class="intro">
-    <div class="bg-decoration"></div>
     <div class="container">
-      <div class="avatar-container">
-        <img src="assets/images/avatar.jpg" alt="Avatar" class="avatar" data-i18n="intro.avatarAlt">
-        <div class="avatar-glow"></div>
-      </div>
+      <div class="hero-console">
+        <div class="console-header">
+          <div class="console-controls">
+            <span class="ctrl-dot red"></span>
+            <span class="ctrl-dot yellow"></span>
+            <span class="ctrl-dot green"></span>
+          </div>
+          <div class="console-title">
+            <i class="fas fa-terminal"></i> <span>SYS // EMBODIED_ROBOTICS_DEV_PORTFOLIO</span>
+          </div>
+          <div class="console-tag">ROS 2 HUMBLE · 50Hz</div>
+        </div>
 
-      <h1 class="gradient-text" data-i18n="intro.title">你好，我是 王浩宇 (Haoyu Wang)</h1>
+        <div class="console-body">
+          <div class="console-profile">
+            <div class="profile-hud-frame">
+              <span class="hud-corner top-left"></span>
+              <span class="hud-corner top-right"></span>
+              <span class="hud-corner bottom-left"></span>
+              <span class="hud-corner bottom-right"></span>
+              <img src="assets/images/avatar.jpg" alt="Avatar" class="avatar" data-i18n="intro.avatarAlt">
+            </div>
+            <div class="profile-meta">
+              <div class="meta-status">
+                <span class="status-dot"></span>
+                <span class="status-text">STATUS: ACTIVE</span>
+              </div>
+              <div class="meta-badge">XJTU · 985</div>
+            </div>
+          </div>
 
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span data-i18n="intro.status">2026届求职中 · 意向: 机器人规划控制 / 嵌入式软件 · 期望: 12-15K</span>
-      </div>
+          <div class="console-main">
+            <div class="console-kicker">
+              <span class="kicker-prompt">$</span>
+              <span class="kicker-label" data-i18n="intro.kicker">机器人运动规划与控制 / 机械臂具身操作工程师</span>
+            </div>
 
-      <p class="subtitle" data-i18n="intro.desc">
-        西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>
-        聚焦机械臂全栈运控 (Pinocchio / MoveIt 2)、具身智能 (LeRobot / ACT / Diffusion Policy)、多智能体凸安全走廊规划与嵌入式软硬件研发
-      </p>
+            <h1 class="hero-title" data-i18n="intro.title">你好，我是 王浩宇 (Haoyu Wang)</h1>
 
-      <div class="intro-contact-links">
-        <a href="#projects" class="btn btn-primary"><i class="fas fa-microchip"></i> <span data-i18n="nav.projects">核心项目</span></a>
-        <a href="assets/resume_haoyu_wang.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span>简历 PDF</span></a>
-        <a href="https://github.com/Messi666j" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> <span>GitHub</span></a>
-        <a href="mailto:2536381227@qq.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> <span>2536381227@qq.com</span></a>
+            <div class="status-pill">
+              <span class="status-dot"></span>
+              <span data-i18n="intro.status">2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K</span>
+            </div>
+
+            <p class="subtitle" data-i18n="intro.desc">
+              西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>
+              聚焦机械臂全栈运控 (Pinocchio / MoveIt 2)、具身智能 (LeRobot / ACT / Diffusion Policy)、多智能体凸安全走廊规划与嵌入式软硬件研发
+            </p>
+
+            <!-- Quick Telemetry Spec Grid -->
+            <div class="telemetry-grid">
+              <div class="telemetry-cell">
+                <span class="telemetry-label" data-i18n="intro.spec0Label">DLS 逆解残差</span>
+                <span class="telemetry-value text-cyan" data-i18n="intro.spec0Value">&lt; 0.1 mm</span>
+              </div>
+              <div class="telemetry-cell">
+                <span class="telemetry-label" data-i18n="intro.spec1Label">MoveIt 2 闭环</span>
+                <span class="telemetry-value text-green" data-i18n="intro.spec1Value">50 Hz Action</span>
+              </div>
+              <div class="telemetry-cell">
+                <span class="telemetry-label" data-i18n="intro.spec2Label">具身学习策略</span>
+                <span class="telemetry-value text-amber" data-i18n="intro.spec2Value">LeRobot / ACT</span>
+              </div>
+              <div class="telemetry-cell">
+                <span class="telemetry-label" data-i18n="intro.spec3Label">全国竞技荣誉</span>
+                <span class="telemetry-value text-purple" data-i18n="intro.spec3Value">RoboCup 3rd</span>
+              </div>
+            </div>
+
+            <div class="intro-contact-links">
+              <a href="#projects" class="btn btn-primary"><i class="fas fa-microchip"></i> <span data-i18n="nav.projects">核心项目</span></a>
+              <a href="assets/resume_haoyu_wang.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span>简历 PDF</span></a>
+              <a href="https://github.com/Messi666j" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> <span>GitHub</span></a>
+              <a href="mailto:2536381227@qq.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> <span>2536381227@qq.com</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -143,7 +197,7 @@
     </div>
   </div>
 
-  <script src="assets/js/i18n.js?v=3.0"></script>
-  <script src="assets/js/main.js?v=3.0"></script>
+  <script src="assets/js/i18n.js?v=3.1"></script>
+  <script src="assets/js/main.js?v=3.1"></script>
 </body>
 </html>

@@ -10,8 +10,17 @@
   "intro": {
     "avatarAlt": "Haoyu Wang's Avatar",
     "title": "Hello, I'm Haoyu Wang",
+    "kicker": "ROBOTICS PLANNING & CONTROL // EMBODIED MANIPULATION",
     "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Full-Stack Manipulator Control (Pinocchio / MoveIt 2), Embodied AI (LeRobot / ACT / Diffusion Policy), Multi-Agent Safe Corridor Planning & Embedded Hardware",
-    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI) · Expected: 12-15K"
+    "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI) · Expected: 12-15K",
+    "spec0Label": "DLS IK Residual",
+    "spec0Value": "< 0.1 mm",
+    "spec1Label": "MoveIt 2 Loop",
+    "spec1Value": "50 Hz Action",
+    "spec2Label": "Embodied Policy",
+    "spec2Value": "LeRobot / ACT",
+    "spec3Label": "National Award",
+    "spec3Value": "RoboCup 3rd"
   },
   "projects": {
     "title": "Featured Engineering Projects",
