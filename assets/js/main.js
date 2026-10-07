@@ -1,5 +1,5 @@
 /**
- * Main Interactive Logic for Haoyu Wang's Robotics Portfolio
+ * Main Interactive Logic for FreeMe's Robotics Portfolio
  * Inspired by VS Code aesthetic & Lain-Ego0's architecture
  */
 

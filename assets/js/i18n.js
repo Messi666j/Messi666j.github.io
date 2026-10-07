@@ -1,5 +1,5 @@
 /**
- * Bilingual i18n Engine for Haoyu Wang's Robotics Portfolio
+ * Bilingual i18n Engine for FreeMe's Robotics Portfolio
  * Inspired by Lain's database, optimized with embedded synchronous fallback
  */
 
@@ -16,8 +16,8 @@
     "contact": "联系方式"
   },
   "intro": {
-    "avatarAlt": "王浩宇的头像",
-    "title": "你好，我是 王浩宇 (Haoyu Wang)",
+    "avatarAlt": "FreeMe的头像",
+    "title": "你好，我是 FreeMe",
     "kicker": "机器人运动规划与控制 / 机械臂具身操作工程师",
     "desc": "西安交通大学 (985) · 自动化专业工学学士 (2022.09 - 2026.06)<br>聚焦机械臂全栈运控 (Pinocchio / MoveIt 2)、具身智能 (LeRobot / ACT / Diffusion Policy)、多智能体凸安全走廊规划与嵌入式软硬件研发",
     "status": "2026届求职中 · 意向: 机器人规划控制 / 机械臂算法工程师(具身智能) · 期望: 12-15K",
@@ -176,7 +176,7 @@
     "languages": "编程语言与工具链"
   },
   "footer": {
-    "copy": "王浩宇 (Haoyu Wang) · 机器人规划控制 / 机械臂算法工程师 (具身智能)",
+    "copy": "FreeMe · 机器人规划控制 / 机械臂算法工程师 (具身智能)",
     "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
   }
 };
@@ -191,8 +191,8 @@
     "contact": "Contact"
   },
   "intro": {
-    "avatarAlt": "Haoyu Wang's Avatar",
-    "title": "Hello, I'm Haoyu Wang",
+    "avatarAlt": "FreeMe's Avatar",
+    "title": "Hello, I'm FreeMe",
     "kicker": "ROBOTICS PLANNING & CONTROL // EMBODIED MANIPULATION",
     "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Full-Stack Manipulator Control (Pinocchio / MoveIt 2), Embodied AI (LeRobot / ACT / Diffusion Policy), Multi-Agent Safe Corridor Planning & Embedded Hardware",
     "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI) · Expected: 12-15K",
@@ -351,7 +351,7 @@
     "languages": "Programming Languages & Toolchains"
   },
   "footer": {
-    "copy": "Haoyu Wang · Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI)",
+    "copy": "FreeMe · Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI)",
     "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
   }
 };

@@ -8,8 +8,8 @@
     "contact": "Contact"
   },
   "intro": {
-    "avatarAlt": "Haoyu Wang's Avatar",
-    "title": "Hello, I'm Haoyu Wang",
+    "avatarAlt": "FreeMe's Avatar",
+    "title": "Hello, I'm FreeMe",
     "kicker": "ROBOTICS PLANNING & CONTROL // EMBODIED MANIPULATION",
     "desc": "Xi'an Jiaotong University (985) · B.S. in Automation (2022.09 - 2026.06)<br>Focused on Full-Stack Manipulator Control (Pinocchio / MoveIt 2), Embodied AI (LeRobot / ACT / Diffusion Policy), Multi-Agent Safe Corridor Planning & Embedded Hardware",
     "status": "Class of 2026 · Seeking: Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI) · Expected: 12-15K",
@@ -134,7 +134,7 @@
     "languages": "Programming Languages & Toolchains"
   },
   "footer": {
-    "copy": "Haoyu Wang · Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI)",
+    "copy": "FreeMe · Robotics Planning & Control / Manipulator Algorithm Engineer (Embodied AI)",
     "credit": "Inspired by VS Code & Lain's database · Hosted on GitHub Pages"
   }
 }
